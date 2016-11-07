@@ -1,0 +1,723 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    title #{namedata.fullName} — Ведущий корпоративных мероприятий
+    link(rel='shortcut icon', href='favicon.ico', type='image/x-icon')
+    script(data-turbolinks-track='false', src='/javascripts/application-79c480bc6b7214dbdc73ef400a1d885a.js')
+    link(href='https://fonts.googleapis.com/css?family=Roboto:400,700,400italic,300italic,300,900&subset=latin,cyrillic', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic&subset=latin,cyrillic')
+    link(rel='stylesheet', href='/assets/reset.css/reset.css')
+    link(href='/assets/fotorama/fotorama.css', rel='stylesheet', media='all')
+    link(href='/stylesheets/pages.css', rel='stylesheet', media='all')
+    link(href='/stylesheets/corp.css', rel='stylesheet', media='all')
+    meta(content='authenticity_token', name='csrf-param')
+    meta(content='N3xhSnDdeSDrr5OLCJ6cnGmXdkt30I5I++9wR/4IqBA=', name='csrf-token')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='format-detection', content='telephone=no')
+    
+  body.corporate-version
+    .preloader(style='opacity:0;')
+      .ring
+    aside.hidden.hide-logo
+      .blood-back
+      a.logo
+        img.ipad(src='https://pp.vk.me/c637219/v637219329/53b6/2IiBodF4d10.jpg')
+        img.laptop(src='https://pp.vk.me/c637219/v637219329/53b6/2IiBodF4d10.jpg')
+        .name Сергей
+        .surname
+          span Абрамов
+          | Абрамов
+      nav
+        a.active(href='corp#main') Главная
+        a.video(href='corp#video') Видео
+        a(href='corp#photo') Обо мне
+        a(href='corp#events') Мероприятия
+        a(href='corp#reviews') Клиенты
+        a(href='corp#calendar') Календарь
+        a(href='corp#contacts') Контакты
+      // <a href="for-agency.pdf" target="_blank" class="for-agency"><img src="img/file.svg">Агентствам</a>
+      .line
+      // <a href="http://anmedio.ru" target="_blank" id="anmedio"><span>Сделано в </span><span class="brand">ANMEDIO</span></a>
+    section
+    //- DATABASE corp.firstPageImg
+    section.first(style='background: url(#{corp.firstPageImg}) no-repeat center center; background-size: cover')
+      //
+        <div id="logo">
+        <img src="https://pp.vk.me/c637219/v637219329/53b6/2IiBodF4d10.jpg">
+        </div>
+      h1 Сергей Абрамов
+      p.relevant Ведущий мероприятий с 2007 года
+      a.down(href='corp#video')
+        img(src='/images/img/down-circle.svg')
+      // <a class="top9" title="Участник ТОП 9 Самара" target="_blank" rel="nofollow" href="http://samara.topshowmen.com/">TOP<span>9</span>SAMARA</a>
+    section.video
+      //- DATABASE corp.videoPoster
+      video#video(style='width:100%; height:auto;', preload='none', poster='#{corp.videoPoster}')
+        //- DATABASE corp.video
+        source#mp4(src='#{corp.video}', type='video/webm')
+        p Видео не поддерживается в вашем браузере.
+        //
+          <source id="mp4" src="corporate/corp-video.mp4" type="video/mp4">
+          <p>Видео не поддерживается в вашем браузере.</p>
+      a.play
+        img(src='/images/img/play.svg')
+        .line1 Посмотрите,
+        .line2 и все увидите сами.
+      .more
+        p
+          | Хотите увидеть
+          br
+          | больше видео?
+        a.get-button Да, хочу!
+      .get-video
+        form#new_video_request.new_video_request(accept-charset='UTF-8', action='http://www.kozlovdenis.ru/video_requests', data-remote='true', method='post')
+          div(style='display:none')
+            input(name='utf8', type='hidden', value='✓')
+          input#video_request_mail(name='video_request[mail]', placeholder='Ваш e-mail', required='required', type='email')
+          input(name='commit', type='submit', value='Ок')
+      a.close
+        img(src='/images/close.svg')
+        div Закрыть
+      a.button(href='corp#photo')
+        | Об опыте 
+        img(src='/images/button-arrow.svg')
+    section.photo
+      .column-1
+        .quote
+          .line-1
+          .line-2
+          .mask
+            .text
+              | Событие,
+              br
+              | проведенное мной,
+              br
+              | прочно войдет в историю
+              br
+              | вашей компании.
+        .about
+          p
+            | Для меня сопроводить корпоративный праздник 
+            span на 4000 человек
+            |  уже не так трудно, куда сложнее было провести полноценное торжество на 3-х гостей.
+            br
+            | О нем я расскажу вам на нашей первой встрече.
+      .column-2
+        #about-me-photos.fotorama(data-glimpse='0', data-height='100%', data-width='100%', data-maxwidth='100%', data-fit='cover', data-loop='true', data-autoplay='true', data-nav='false')
+          //- DATABASE corp.aboutMePhotos loop
+          each photo in corp.aboutMePhotos
+            img(src=photo)
+          //
+            <img src="about/1.jpg">
+            <img src="about/2.jpg">
+            <img src="about/3.jpg">
+            <img src="about/4.jpg">
+            <img src="about/5.jpg">
+        .grad
+        .description
+          .text
+            | Я знаю, как сделать ваше событие идеальным.
+          a.button(href='corp#weddings')
+            | Посмотреть портфолио 
+            img(src='/images/button-arrow.svg')
+            
+    //- DATABASE corp.eventsItems loop
+    section.weddings
+      .back(style='background:url(album/corp1/1.jpg) no-repeat center center; background-size:cover;')
+      //- .active-wedding
+      //-   .title Новогодние банкеты
+      //-   a.get-photos(rel='corp1')
+      //-     img(src='/images/photo.svg')
+      //-     span Фото
+      //-   .date(style='display:none;') 15 августа 2016
+      //-   .desc(style='clear:both; margin:6vw 0 0;')
+      //-     | Для многих новый год - это не только семейный праздник, но и одна из немногих возможностей собраться с рабочим коллективом в неформальной обстановке.
+      //-   .people(style='display:none;')
+      //-     img(src='images/people.svg')
+      //-     span 1 гостей
+      //-   .place(style='display:none;')
+      //-     img(src='/images/map.svg')
+      //-     span -
+      //-   a.button(href='corp#reviews')
+      //-     | Более 150 клиентов 
+      //-     img(src='/images/button-arrow.svg')
+      each slide in corp.eventsItems
+        if slide.active 
+          .active-wedding 
+            .title= slide.eventName
+            a.get-photos(rel=slide.id)
+              span Фото
+            .date(style='display:none;')= slide.date
+            .desc(style='clear:both; margin:6vw 0 0;')= slide.description
+            .people(style='display:none;')
+              img(src='images/people.svg')
+              span 1 гостей
+            .place(style='display:none;')
+              img(src='/images/map.svg')
+            a.button(href='corp#reviews')
+              | Более 150 клиентов 
+              img(src='/images/button-arrow.svg')
+              span -
+        .weddings
+          each slide in corp.eventsItems
+              .slide
+                img(alt=slide.id src=slide.titleImg)
+                .info
+                  .title= slide.eventName
+                  .desc= slide.description
+                  .date= slide.date
+                  .id= slide.id
+        //- .slide
+        //-   img(alt='1', src='/album/corp1/1.jpg')
+        //-   .info
+        //-     .title Новогодние банкеты
+        //-     .desc
+        //-       | Для многих новый год - это не только семейный праздник, но и одна из немногих возможностей собраться с рабочим коллективом в неформальной обстановке.
+        //-     .date 15 августа 2016
+        //-     .place -
+        //-     .people 1
+        //-     .id corp1
+        //- .slide
+        //-   img(alt='1', src='/album/corp3/3.jpg')
+        //-   .info
+        //-     .title Team-building
+        //-     .desc
+        //-       | Обожаю наблюдать как сплочаются коллективы и принимать в этом участие. Будь то простая спартакиада или огромный командообразующий квест.
+        //-     .date 15 августа 2016
+        //-     .place 1
+        //-     .people 1
+        //-     .id corp3
+      a.more Еще фото...
+    #show-album.hidden
+      .handle
+    #show-album-grad.hidden
+      a.next
+    #show-album-grad-prev.hidden
+      a.prev
+    a.close-album.hidden
+      img(src='/images/close.svg')
+      div Закрыть
+    section.reviews
+      .grad-left
+      #photo-reviews.mask.dragdealer
+        .handle(style='width:288vw')
+          .column
+            a.review.ind0.empty(style='background:url(images/medium/missing.png) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind1.empty(style='background:url(images/medium/missing.png) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind2(style='background:url(clients/7/medium/vtb24.jpg@1468931503) no-repeat center 30%; background-size:cover;')
+              .overlay
+          .column
+            a.review.ind3(style='background:url(clients/44/medium/logo1.jpg@1471261752) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind4(style='background:url(clients/45/medium/logo2.jpg@1471261780) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind5(style='background:url(clients/46/medium/logo3.jpg@1471261815) no-repeat center 30%; background-size:cover;')
+              .overlay
+          .column
+            a.review.ind6(style='background:url(clients/47/medium/logo4.jpg@1471261844) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind7(style='background:url(clients/25/medium/rusfinans.jpg@1468933145) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind8(style='background:url(clients/18/medium/botekwellness.jpg@1468934171) no-repeat center 30%; background-size:cover;')
+              .overlay
+          .column
+            a.review.ind9(style='background:url(clients/4/medium/beeline.jpg@1468931413) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind10(style='background:url(clients/16/medium/baltika.jpg@1468932794) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind11(style='background:url(clients/10/medium/rosneft.jpg@1468931628) no-repeat center 30%; background-size:cover;')
+              .overlay
+          .column
+            a.review.ind12(style='background:url(clients/33/medium/perfectogroup.jpg@1468933444) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind13(style='background:url(clients/17/medium/ipozembank.jpg@1468932820) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind14(style='background:url(clients/28/medium/bosch.jpg@1468933221) no-repeat center 30%; background-size:cover;')
+              .overlay
+          .column
+            a.review.ind15(style='background:url(clients/34/medium/electoshit.jpg@1468933469) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind16(style='background:url(clients/38/medium/etm.jpg@1468933560) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind17(style='background:url(clients/40/medium/glyanec.jpg@1468933974) no-repeat center 30%; background-size:cover;')
+              .overlay
+          .column
+            a.review.ind18(style='background:url(clients/42/medium/luxury-fitness.jpg@1468934017) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind19(style='background:url(clients/41/medium/pivo.jpg@1468933991) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind20(style='background:url(clients/1/medium/mts.jpg@1468844339) no-repeat center 30%; background-size:cover;')
+              .overlay
+          .column
+            a.review.ind21(style='background:url(clients/5/medium/tele2.jpg@1468931454) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind22(style='background:url(clients/6/medium/sberbank.jpg@1468931479) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind23(style='background:url(clients/8/medium/homcredit.jpg@1468931533) no-repeat center 30%; background-size:cover;')
+              .overlay
+          .column
+            a.review.ind24(style='background:url(clients/9/medium/mcdonalds.jpg@1468931607) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind25(style='background:url(clients/11/medium/irr.jpg@1468931647) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind26(style='background:url(clients/12/medium/sladkodarov.jpg@1468931724) no-repeat center 30%; background-size:cover;')
+              .overlay
+          .column
+            a.review.ind27(style='background:url(clients/13/medium/absolutebank.jpg@1468931760) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind28(style='background:url(clients/14/medium/fiat.jpg@1468931827) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind29(style='background:url(clients/15/medium/vw.jpg@1468931857) no-repeat center 30%; background-size:cover;')
+              .overlay
+          .column
+            a.review.ind30(style='background:url(clients/19/medium/samvtormet.jpg@1468932891) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind31(style='background:url(clients/20/medium/kinupwellness.jpg@1468932939) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind32(style='background:url(clients/21/medium/britishamericantobacco.jpg@1468933032) no-repeat center 30%; background-size:cover;')
+              .overlay
+          .column
+            a.review.ind33(style='background:url(clients/22/medium/nefco.jpg@1468933077) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind34(style='background:url(clients/23/medium/gfso.jpg@1468933111) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind35(style='background:url(clients/24/medium/parkisamari.jpg@1468933126) no-repeat center 30%; background-size:cover;')
+              .overlay
+          .column
+            a.review.ind36(style='background:url(clients/26/medium/leroymerlin.jpg@1468933163) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind37(style='background:url(clients/27/medium/mediamarkt.jpg@1468933194) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind38(style='background:url(clients/29/medium/transneft.jpg@1468933260) no-repeat center 30%; background-size:cover;')
+              .overlay
+          .column
+            a.review.ind39(style='background:url(clients/30/medium/perekrestok.jpg@1468933283) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind40(style='background:url(clients/31/medium/nrj.jpg@1468933381) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind41(style='background:url(clients/32/medium/heineken.jpg@1468933423) no-repeat center 30%; background-size:cover;')
+              .overlay
+          .column
+            a.review.ind42(style='background:url(clients/35/medium/samneftfiz.jpg@1468933494) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind43(style='background:url(clients/36/medium/svgk.jpg@1468933513) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind44(style='background:url(clients/37/medium/medgard.jpg@1468933537) no-repeat center 30%; background-size:cover;')
+              .overlay
+          .column
+            a.review.ind45(style='background:url(clients/39/medium/fashioncollectoion.jpg@1468933608) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind46(style='background:url(clients/43/medium/loveradio.jpg@1468934069) no-repeat center 30%; background-size:cover;')
+              .overlay
+            a.review.ind47(style='background:url(clients/3/medium/megafon.jpg@1468844365) no-repeat center 30%; background-size:cover;')
+              .overlay
+      //- DATABASE corp.reviewsPhotoBlock
+      .about(style='background:url(#{corp.reviewsPhotoBlock.photoLink}); \
+       background-repeat: #{corp.reviewsPhotoBlock.imgSettings.backgroundRepeat}; \
+       background-size: #{corp.reviewsPhotoBlock.imgSettings.backgroundSize}; background-position: #{corp.reviewsPhotoBlock.imgSettings.position}')
+        h3= corp.reviewsPhotoBlock.header
+        p.subtitle= corp.reviewsPhotoBlock.subtitle
+        p.text= corp.reviewsPhotoBlock.text
+        a.button(href='corp#calendar')
+          | Свободные даты 
+          img(src='/images/button-arrow.svg')
+      #text-reviews.text-reviews.dragdealer
+        .text-handle.handle(style='width: 500%')
+          //- DATABASE loop for corp.clients
+          //- обязательно должно выполняться условие if(corp.clients === 4)
+          each review in corp.clients
+            .review(style='width: 20.0%')
+              .head
+                .author
+                  img(alt='Logo1', src=review.img)
+                  a= review.clientName
+              a.text(href='client/44.html', data-method='get', data-remote='true')= review.text
+          //- .review(style='width: 20.0%')
+          //-   .head
+          //-     .author
+          //-       img(alt='Logo2', src='/clients/45/medium/logo2.jpg@1471261780')
+          //-       a Ситилинк
+          //-   a.text(href='client/45.html', data-method='get', data-remote='true')
+          //-     | Федеральное рекламное агентство "Адмирал" проводило открытие магазина "Сити линк" в Самаре. 90%...
+          //- .review(style='width: 20.0%')
+          //-   .head
+          //-     .author
+          //-       img(alt='Logo3', src='/clients/46/medium/logo3.jpg@1471261815')
+          //-       a Волгашинторг
+          //-   a.text(href='client/46.html', data-method='get', data-remote='true')
+          //-     | Огромная благодарность от всех сотрудников Волгашинторга и Партека, за незабываемый новогодний...
+          //- .review(style='width: 20.0%')
+          //-   .head
+          //-     .author
+          //-       img(alt='Logo4', src='/clients/47/medium/logo4.jpg@1471261844')
+          //-       a ОАО «СамРЭК»
+          //-   a.text(href='client/47.html', data-method='get', data-remote='true')
+          //-     | 
+          .review(style='width: 20.0%')
+            .head
+              p.more И более 100 отзывов в моей группе ВК
+            //- DATABASE corp.reviewsLink
+            a.show(href=corp.reviewsLink, target='_blank') Смотреть
+        .dots
+          .dot.active
+          .dot
+          .dot
+          .dot
+          .dot
+      //- DATABASE corp.reviewsLink
+      a.add(href=corp.reviewsLink, target='_blank', rel='nofollow')
+        p
+          | Отзывы ВКонтакте
+    #show-review.hidden
+      .handle
+    a.close-review.hidden
+      img(src='/images/close.svg')
+    section.calendar
+      .column-1
+        #calendar.animated
+          .month
+            a(data-method='post', data-remote='true', href='http://www.kozlovdenis.ru/pages/calendar?month=2016-09-01', rel='nofollow')
+              img(src='/calendar/left.svg')
+            span октябрь/2016
+            a(data-method='post', data-remote='true', href='http://www.kozlovdenis.ru/pages/calendar?month=2016-11-01', rel='nofollow')
+              img(src='/calendar/right.svg')
+          table
+            tbody
+              tr
+                td.notmonth
+                  a.reserved
+                    | 26
+                  .event
+                    .date
+                      | 26 октября 2016
+                    .name
+                      | Рабочие встречи в Москве
+                    .type
+                      | Встречи
+                td.notmonth
+                  a.
+                    | 27
+                  .event
+                    .date
+                      | 27 октября 2016
+                td.notmonth
+                  a.
+                    | 28
+                  .event
+                    .date
+                      | 28 октября 2016
+                td.notmonth
+                  a.reserved
+                    | 29
+                  .event
+                    .date
+                      | 29 октября 2016
+                    .name
+                      | Конференция врачей
+                    .type
+                      | Конференция
+                td.notmonth
+                  a.
+                    | 30
+                  .event
+                    .date
+                      | 30 октября 2016
+                td.weekend
+                  a.reserved
+                    | 1
+                  .event
+                    .date
+                      | 1 октября 2016
+                    .name
+                      | Ашот и Елена
+                    .type
+                      | Свадьба
+                td.weekend
+                  a.
+                    | 2
+                  .event
+                    .date
+                      | 2 октября 2016
+              tr
+                td
+                  a.
+                    | 3
+                  .event
+                    .date
+                      | 3 октября 2016
+                td
+                  a.
+                    | 4
+                  .event
+                    .date
+                      | 4 октября 2016
+                td
+                  a.
+                    | 5
+                  .event
+                    .date
+                      | 5 октября 2016
+                td
+                  a.
+                    | 6
+                  .event
+                    .date
+                      | 6 октября 2016
+                td
+                  a.
+                    | 7
+                  .event
+                    .date
+                      | 7 октября 2016
+                td.weekend
+                  a.
+                    | 8
+                  .event
+                    .date
+                      | 8 октября 2016
+                td.weekend
+                  a.
+                    | 9
+                  .event
+                    .date
+                      | 9 октября 2016
+              tr
+                td.today
+                  a.
+                    | 10
+                  .event
+                    .date
+                      | 10 октября 2016
+                td.future
+                  a.after
+                    | 11
+                  .event
+                    .date
+                      | 11 октября 2016
+                td.future
+                  a.after
+                    | 12
+                  .event
+                    .date
+                      | 12 октября 2016
+                td.future
+                  a.after
+                    | 13
+                  .event
+                    .date
+                      | 13 октября 2016
+                td.future
+                  a.after
+                    | 14
+                  .event
+                    .date
+                      | 14 октября 2016
+                td.weekend.future
+                  a.after
+                    | 15
+                  .event
+                    .date
+                      | 15 октября 2016
+                td.weekend.future
+                  a.after
+                    | 16
+                  .event
+                    .date
+                      | 16 октября 2016
+              tr
+                td.future
+                  a.after
+                    | 17
+                  .event
+                    .date
+                      | 17 октября 2016
+                td.future
+                  a.after
+                    | 18
+                  .event
+                    .date
+                      | 18 октября 2016
+                td.future
+                  a.after
+                    | 19
+                  .event
+                    .date
+                      | 19 октября 2016
+                td.future
+                  a.after
+                    | 20
+                  .event
+                    .date
+                      | 20 октября 2016
+                td.future
+                  a.reserved.after
+                    | 21
+                  .event
+                    .date
+                      | 21 октября 2016
+                    .name
+                      | Юбилей 50 лет
+                    .type
+                      | Юбилей
+                td.weekend.future
+                  a.after
+                    | 22
+                  .event
+                    .date
+                      | 22 октября 2016
+                td.weekend.future
+                  a.after
+                    | 23
+                  .event
+                    .date
+                      | 23 октября 2016
+              tr
+                td.future
+                  a.after
+                    | 24
+                  .event
+                    .date
+                      | 24 октября 2016
+                td.future
+                  a.after
+                    | 25
+                  .event
+                    .date
+                      | 25 октября 2016
+                td.future
+                  a.after
+                    | 26
+                  .event
+                    .date
+                      | 26 октября 2016
+                td.future
+                  a.after
+                    | 27
+                  .event
+                    .date
+                      | 27 октября 2016
+                td.future
+                  a.after
+                    | 28
+                  .event
+                    .date
+                      | 28 октября 2016
+                td.weekend.future
+                  a.after
+                    | 29
+                  .event
+                    .date
+                      | 29 октября 2016
+                td.weekend.future
+                  a.after
+                    | 30
+                  .event
+                    .date
+                      | 30 октября 2016
+              tr
+                td.future
+                  a.after
+                    | 31
+                  .event
+                    .date
+                      | 31 октября 2016
+                td.notmonth.future
+                  a.after
+                    | 1
+                  .event
+                    .date
+                      | 1 октября 2016
+                td.notmonth.future
+                  a.after
+                    | 2
+                  .event
+                    .date
+                      | 2 октября 2016
+                td.notmonth.future
+                  a.after
+                    | 3
+                  .event
+                    .date
+                      | 3 октября 2016
+                td.notmonth.future
+                  a.after
+                    | 4
+                  .event
+                    .date
+                      | 4 октября 2016
+                td.notmonth.weekend.future
+                  a.after
+                    | 5
+                  .event
+                    .date
+                      | 5 октября 2016
+                td.notmonth.weekend.future
+                  a.after
+                    | 6
+                  .event
+                    .date
+                      | 6 октября 2016
+          .legend
+            span
+            |  — дата занята
+        .reserve
+          .text
+            | Выберите свободную дату
+            br
+            | и нажмите:
+          a.button.disabled Забронировать
+          form#new_reserve.new_reserve(accept-charset='UTF-8', action='http://www.kozlovdenis.ru/reserves', data-remote='true', method='post')
+            div(style='display:none')
+              input(name='utf8', type='hidden', value='✓')
+            input#reserve_who(name='reserve[who]', placeholder='Ваше имя', required='required', type='text')
+            input#reserve_contacts(name='reserve[contacts]', placeholder='Как с вами связаться?', required='required', type='text')
+            input#reserve_date(name='reserve[date]', type='hidden')
+            input(name='commit', type='submit', value='Забронировать')
+      .column-2
+        a.button(href='corp#contacts')
+          | Свяжитесь со мной 
+          img(src='/images/button-arrow.svg')
+    //- DATABASE corp.contactsPageImg
+    section.contacts(style='background: url(#{corp.contactsPageImg}) no-repeat center center; background-size: cover')
+      .logo
+        img(src='https://pp.vk.me/c637219/v637219329/53b6/2IiBodF4d10.jpg')
+      .text
+        h1 Сергей Абрамов
+        p.relevant Ведущий мероприятий с 2008 года
+        .line
+        p.im-ready Готов ответить на все ваши вопросы
+        .get-ring
+          p.ok Отправляю...
+          form#new_ring_request.new_ring_request(accept-charset='UTF-8', action='http://www.kozlovdenis.ru/ring_requests', data-remote='true', method='post')
+            div(style='display:none')
+              input(name='utf8', type='hidden', value='✓')
+            input#ring_request_name(name='ring_request[name]', placeholder='Имя', required='required', type='text')
+            input#ring_request_phone(name='ring_request[phone]', placeholder='Ваш телефон', required='required', style='width:20vw', type='text')
+            input(name='commit', type='submit', value='Ок')
+        p.phone.show
+          | +7 
+          span (920)
+          |  033-67-97
+        // <p class="phone show">+9 <span>(999)</span> 999-99-99</p>
+        // <a class="ring">Заказать звонок</a>
+        .social
+          a.vk(title='Паблик ВКонтакте', href='#', rel='nofollow', target='_blank')
+            img(src='/social/vk.svg')
+          a.tw(title='Твиттер', href='#', rel='nofollow', target='_blank')
+            img(src='/social/tw.svg')
+          a.insta(title='Фоточки в инстаграме', href='#', rel='nofollow', target='_blank')
+            img(src='/social/insta.svg')
+          a.fb(title='Страничка на фэйсбуке', href='#', rel='nofollow', target='_blank')
+            img(src='/social/fb.svg')
+      // <a class="top9" title="Участник ТОП 9 Самара" target="_blank" rel="nofollow" href="http://samara.topshowmen.com/">TOP<span>9</span>SAMARA</a>
+    // Yandex.Metrika counter
+    script(type='text/javascript').
+      (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter37565700 = new Ya.Metrika({ id:37565700, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");
+    noscript
+      div
+        img(src='https://mc.yandex.ru/watch/37565700', style='position:absolute; left:-9999px;', alt='')
+    // /Yandex.Metrika counter

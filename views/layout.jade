@@ -1,0 +1,25 @@
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    title #{fullName} — ведущий мероприятий v #{city}
+    link(rel='shortcut icon', href='favicon.ico', type='image/x-icon')
+    link(rel='stylesheet', href='assets/reset.css/reset.css')
+    link(href='https://fonts.googleapis.com/css?family=Roboto:700,400italic,300&subset=latin,cyrillic', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='stylesheets/landing.css')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='format-detection', content='telephone=no')
+    script(src='assets/mobile-detect/mobile-detect.min.js')
+    script.
+      (function (window) {
+        function redirectToMobileVersion () {
+          window.location.pathname = 'abramovsergey/m.html';
+        }
+        var md = new MobileDetect(window.navigator.userAgent);
+          if(md.phone() || md.tablet()){
+          redirectToMobileVersion();
+        }
+      })(window)
+  body
+    block content

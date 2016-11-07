@@ -1,0 +1,716 @@
+/* line 10, mobile.scss */
+body {
+  font-family: 'Avenir Next Cyr',sans-serif;
+  color: #feffe2;
+  background: #e0643d; }
+
+/* line 16, mobile.scss */
+.main-col {
+  width: 100%;
+  float: left;
+  position: relative;
+  background: #333;
+  -webkit-transition: 0.3s ease;
+          transition: 0.3s ease; }
+  /* line 22, mobile.scss */
+  .main-col.hide {
+    -webkit-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+            transform: translateX(-100%); }
+  /* line 25, mobile.scss */
+  .main-col section {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    float: left;
+    overflow: hidden; }
+    /* line 31, mobile.scss */
+    .main-col section a.hash-link {
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      display: none; }
+  /* line 39, mobile.scss */
+  .main-col section.main {
+    background: #e0643d;
+    text-align: center; }
+    /* line 42, mobile.scss */
+    .main-col section.main .wrap {
+      width: 100%;
+      top: 50%;
+      position: absolute;
+      -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+              transform: translateY(-50%); }
+    /* line 48, mobile.scss */
+    .main-col section.main .logo {
+      display: inline-block;
+      background: url("https://pp.vk.me/c637219/v637219329/53b6/2IiBodF4d10.jpg") no-repeat;
+      /*background: url(../logo.jpg) no-repeat;*/
+      background-size: cover;
+      width: 44vw;
+      height: 44vw;
+      position: relative;
+      border-radius: 44vw; }
+      /* line 56, mobile.scss */
+      .main-col section.main .logo:before {
+        content: '';
+        width: 54vw;
+        height: 54vw;
+        border-radius: 54vw;
+        position: absolute;
+        left: -5vw;
+        top: -5vw;
+        box-shadow: inset 0 0 0 2px #feffe2; }
+    /* line 67, mobile.scss */
+    .main-col section.main h1 {
+      font-size: 9vw;
+      font-weight: 600;
+      margin: 10vw 0 0; }
+    /* line 72, mobile.scss */
+    .main-col section.main p {
+      font-style: italic;
+      font-weight: 200;
+      font-size: 4vw;
+      margin: 4vw 0 0; }
+    /* line 78, mobile.scss */
+    .main-col section.main .next {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      background: url(../mobile/down.svg) no-repeat;
+      background-size: contain;
+      margin: 0 0 0 -15px; }
+  /* line 90, mobile.scss */
+  .main-col section.video .wrap {
+    width: 100%;
+    top: 50%;
+    position: absolute;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%); }
+  /* line 96, mobile.scss */
+  .main-col section.video .play {
+    width: 30vw;
+    height: 30vw;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: url(../mobile/play.svg) no-repeat;
+    background-size: contain;
+    margin: -15vw 0 0 -15vw;
+    -webkit-filter: drop-shadow(0 0 10px black); }
+  /* line 107, mobile.scss */
+  .main-col section.video .poster {
+    background: url(https://pp.vk.me/c637621/v637621329/eb98/bG1VxjSfqLo.jpg) no-repeat -260px 0px;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-transition: .3s ease;
+            transition: .3s ease; }
+    /* line 116, mobile.scss */
+    .main-col section.video .poster.hide {
+      opacity: 0;
+      pointer-events: none; }
+  /* line 121, mobile.scss */
+  .main-col section.video p {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-size: 5vw;
+    line-height: 1.4;
+    bottom: 15px;
+    left: 0;
+    font-weight: 200;
+    box-sizing: border-box;
+    padding: 0 40px; }
+  /* line 134, mobile.scss */
+  .main-col section.about {
+    background: #333; }
+    /* line 136, mobile.scss */
+    .main-col section.about p {
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      font-size: 5vw;
+      line-height: 1.4;
+      bottom: 60px;
+      left: 0;
+      font-weight: 200;
+      box-sizing: border-box;
+      padding: 0 40px; }
+      /* line 147, mobile.scss */
+      .main-col section.about p b {
+        background: #fb5b40;
+        font-weight: 200;
+        padding: 0 2px; }
+    /* line 153, mobile.scss */
+    .main-col section.about .dots {
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+      text-align: center;
+      height: 8px;
+      box-sizing: border-box;
+      padding: 0 0 0 7px; }
+      /* line 161, mobile.scss */
+      .main-col section.about .dots .dot {
+        display: inline-block;
+        width: 3px;
+        height: 3px;
+        background: #feffe2;
+        border-radius: 3px;
+        margin: 0 7px 0 0; }
+        /* line 168, mobile.scss */
+        .main-col section.about .dots .dot.active:before {
+          content: '';
+          width: 7px;
+          height: 7px;
+          box-shadow: inset 0 0 0 1px #feffe2;
+          border-radius: 7px;
+          position: absolute;
+          margin: -2px 0 0 -3.5px; }
+  /* line 180, mobile.scss */
+  .main-col section.reviews {
+    background: #e0643d; }
+    /* line 182, mobile.scss */
+    .main-col section.reviews .review {
+      width: 100%;
+      height: 100%;
+      position: relative; }
+      /* line 186, mobile.scss */
+      .main-col section.reviews .review .image {
+        width: 100%;
+        float: left;
+        height: 45%;
+        position: relative;
+        margin: 0 0 30px; }
+    /* line 194, mobile.scss */
+    .main-col section.reviews p {
+      width: 100%;
+      position: relative;
+      text-align: center;
+      color: #feffe2;
+      margin: 0;
+      box-sizing: border-box;
+      padding: 0 30px;
+      font-size: 14px;
+      line-height: 20px; }
+      /* line 204, mobile.scss */
+      .main-col section.reviews p.all {
+        font-size: 7vw;
+        top: 50%;
+        margin: -9vw 0 0;
+        line-height: 1.6; }
+        /* line 209, mobile.scss */
+        .main-col section.reviews p.all a {
+          color: #feffe2; }
+    /* line 214, mobile.scss */
+    .main-col section.reviews .dots {
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+      text-align: center;
+      height: 8px;
+      box-sizing: border-box;
+      padding: 0 0 0 7px; }
+      /* line 222, mobile.scss */
+      .main-col section.reviews .dots .dot {
+        display: inline-block;
+        width: 3px;
+        height: 3px;
+        background: #feffe2;
+        border-radius: 3px;
+        margin: 0 7px 0 0; }
+        /* line 229, mobile.scss */
+        .main-col section.reviews .dots .dot.active:before {
+          content: '';
+          width: 7px;
+          height: 7px;
+          box-shadow: inset 0 0 0 1px #feffe2;
+          border-radius: 7px;
+          position: absolute;
+          margin: -2px 0 0 -3.5px; }
+  /* line 241, mobile.scss */
+  .main-col section.calendar {
+    background: #333; }
+    /* line 243, mobile.scss */
+    .main-col section.calendar #calendar {
+      top: 50%;
+      position: absolute;
+      -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+              transform: translateY(-50%);
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0 45px 140px; }
+      /* line 250, mobile.scss */
+      .main-col section.calendar #calendar .month {
+        width: 100%;
+        float: left;
+        height: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin: 0 0 20px;
+        position: relative; }
+        /* line 259, mobile.scss */
+        .main-col section.calendar #calendar .month a:nth-child(1) {
+          left: 0;
+          position: absolute; }
+        /* line 263, mobile.scss */
+        .main-col section.calendar #calendar .month span {
+          font-weight: 200;
+          position: absolute;
+          width: 100%;
+          left: 0;
+          top: 6px;
+          pointer-events: none; }
+        /* line 271, mobile.scss */
+        .main-col section.calendar #calendar .month a:nth-child(3) {
+          right: 0;
+          position: absolute; }
+        /* line 275, mobile.scss */
+        .main-col section.calendar #calendar .month img {
+          width: 30px; }
+      /* line 279, mobile.scss */
+      .main-col section.calendar #calendar table {
+        width: 100%;
+        text-align: center;
+        font-size: 14px; }
+        /* line 283, mobile.scss */
+        .main-col section.calendar #calendar table td {
+          height: 30px;
+          border: 2px solid #333; }
+          /* line 286, mobile.scss */
+          .main-col section.calendar #calendar table td.notmonth {
+            opacity: 0.4; }
+          /* line 289, mobile.scss */
+          .main-col section.calendar #calendar table td a {
+            width: 100%;
+            height: 30px;
+            float: left;
+            box-sizing: border-box;
+            padding: 8px 0 0; }
+            /* line 295, mobile.scss */
+            .main-col section.calendar #calendar table td a.reserved {
+              background: #fb5b40;
+              color: #2a2f28; }
+      /* line 302, mobile.scss */
+      .main-col section.calendar #calendar .event {
+        display: none; }
+      /* line 305, mobile.scss */
+      .main-col section.calendar #calendar .legend {
+        width: 100%;
+        float: left;
+        text-align: center;
+        margin: 25px 0 0;
+        font-size: 12px;
+        opacity: 0.5; }
+        /* line 312, mobile.scss */
+        .main-col section.calendar #calendar .legend:before {
+          content: '';
+          display: inline-block;
+          width: 20px;
+          height: 12px;
+          background: #fb5b40;
+          margin: 0 2px -3px 0; }
+    /* line 322, mobile.scss */
+    .main-col section.calendar .reserve {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      text-align: center;
+      font-size: 5vw;
+      line-height: 1.4;
+      font-weight: 200;
+      box-sizing: border-box;
+      padding: 0 40px; }
+      /* line 333, mobile.scss */
+      .main-col section.calendar .reserve .text .other {
+        font-size: 75%;
+        line-height: 1;
+        color: #fb5b40;
+        font-weight: 400; }
+      /* line 339, mobile.scss */
+      .main-col section.calendar .reserve .text .free {
+        font-size: 75%;
+        line-height: 1;
+        color: #35e099;
+        font-weight: 400; }
+    /* line 346, mobile.scss */
+    .main-col section.calendar .button {
+      font-size: 5vw;
+      text-decoration: none;
+      color: #feffe2;
+      border: 2px solid;
+      padding: 2.3vw 4.5vw 3vw;
+      border-radius: 10vw;
+      margin: 6vw 0 20px;
+      display: inline-block; }
+      /* line 355, mobile.scss */
+      .main-col section.calendar .button.disabled {
+        opacity: 0.5; }
+  /* line 360, mobile.scss */
+  .main-col section.contacts {
+    background: #e0643d;
+    text-align: center; }
+    /* line 363, mobile.scss */
+    .main-col section.contacts .wrap {
+      width: 100%;
+      top: 50%;
+      position: absolute;
+      -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+              transform: translateY(-50%);
+      box-sizing: border-box;
+      padding: 16px 0 40px; }
+    /* line 371, mobile.scss */
+    .main-col section.contacts .logo {
+      display: inline-block;
+      background: url("https://pp.vk.me/c637219/v637219329/53b6/2IiBodF4d10.jpg") no-repeat;
+      /*background: url(../logo.jpg) no-repeat;*/
+      background-size: cover;
+      width: 44vw;
+      height: 44vw;
+      position: relative;
+      border-radius: 44vw; }
+      /* line 379, mobile.scss */
+      .main-col section.contacts .logo:before {
+        content: '';
+        width: 54vw;
+        height: 54vw;
+        border-radius: 54vw;
+        position: absolute;
+        left: -5vw;
+        top: -5vw;
+        box-shadow: inset 0 0 0 2px #feffe2; }
+    /* line 390, mobile.scss */
+    .main-col section.contacts h2 {
+      font-size: 9vw;
+      font-weight: 600;
+      margin: 10vw 0 0; }
+    /* line 395, mobile.scss */
+    .main-col section.contacts p.tagline {
+      font-style: normal;
+      font-weight: 200;
+      font-size: 4vw;
+      margin: 3vw 0 0; }
+    /* line 401, mobile.scss */
+    .main-col section.contacts hr {
+      width: 63px;
+      height: 2px;
+      background: #feffe2;
+      display: inline-block;
+      border: none;
+      margin: 7vw 0; }
+    /* line 410, mobile.scss */
+    .main-col section.contacts .phone .about {
+      color: #2a2f28;
+      font-weight: 200;
+      font-size: 4vw; }
+    /* line 415, mobile.scss */
+    .main-col section.contacts .phone .phone {
+      font-weight: 400;
+      font-size: 7vw;
+      margin: 2vw 0 0; }
+      /* line 419, mobile.scss */
+      .main-col section.contacts .phone .phone span {
+        color: #2a2f28; }
+    /* line 423, mobile.scss */
+    .main-col section.contacts .phone .button {
+      font-size: 5vw;
+      text-decoration: none;
+      color: #feffe2;
+      border: 2px solid;
+      padding: 2.3vw 4.5vw 3vw;
+      border-radius: 10vw;
+      margin: 6vw 0 0;
+      display: inline-block; }
+  /* line 435, mobile.scss */
+  .main-col .social {
+    position: absolute;
+    left: 0;
+    bottom: 15px;
+    height: 30px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 0 0 5px;
+    text-align: center; }
+    /* line 444, mobile.scss */
+    .main-col .social a {
+      display: inline-block;
+      margin: 0 5px 0 0;
+      width: 30px;
+      height: 30px; }
+      /* line 449, mobile.scss */
+      .main-col .social a img {
+        width: 30px;
+        height: 30px; }
+
+/* line 458, mobile.scss */
+.forms-col {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  right: 0;
+  top: 0;
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-transition: 0.3s ease;
+          transition: 0.3s ease;
+  overflow: hidden; }
+  /* line 467, mobile.scss */
+  .forms-col.show {
+    -webkit-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+            transform: translateX(0%); }
+  /* line 470, mobile.scss */
+  .forms-col section {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none; }
+    /* line 476, mobile.scss */
+    .forms-col section.show {
+      display: block; }
+  /* line 480, mobile.scss */
+  .forms-col section.calendar {
+    background: #333; }
+    /* line 482, mobile.scss */
+    .forms-col section.calendar .wrap {
+      width: 80%;
+      top: 50%;
+      position: absolute;
+      -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+              transform: translateY(-50%);
+      box-sizing: border-box;
+      padding: 16px 0 40px;
+      margin: 0 10%; }
+    /* line 491, mobile.scss */
+    .forms-col section.calendar .date {
+      font-size: 7vw;
+      margin: 0 0 3vw; }
+    /* line 495, mobile.scss */
+    .forms-col section.calendar .free {
+      font-size: 5vw;
+      color: #35e099;
+      margin: 0 0 10vw; }
+    /* line 500, mobile.scss */
+    .forms-col section.calendar input[type=text] {
+      width: 100%;
+      position: relative;
+      float: left;
+      margin: 30px 0 0;
+      background: none;
+      border: none;
+      text-align: center;
+      border-bottom: 2px solid #feffe2;
+      font-size: 5vw;
+      padding: 0 0 3vw;
+      font-family: 'Avenir Next Cyr',sans-serif;
+      color: #feffe2; }
+      /* line 513, mobile.scss */
+      .forms-col section.calendar input[type=text]::-webkit-input-placeholder {
+        color: #feffe2;
+        opacity: 0.5; }
+      .forms-col section.calendar input[type=text]::-moz-placeholder {
+        color: #feffe2;
+        opacity: 0.5; }
+      .forms-col section.calendar input[type=text]:-ms-input-placeholder {
+        color: #feffe2;
+        opacity: 0.5; }
+      .forms-col section.calendar input[type=text]::placeholder {
+        color: #feffe2;
+        opacity: 0.5; }
+    /* line 518, mobile.scss */
+    .forms-col section.calendar input[type=submit] {
+      font-size: 5vw;
+      text-decoration: none;
+      color: #feffe2;
+      border: 2px solid;
+      padding: 2.3vw 4.5vw 3vw;
+      border-radius: 10vw;
+      margin: 8vw 0 0;
+      display: inline-block;
+      background: none;
+      font-family: 'Avenir Next Cyr',sans-serif; }
+  /* line 531, mobile.scss */
+  .forms-col section.contacts {
+    background: #e0643d; }
+    /* line 533, mobile.scss */
+    .forms-col section.contacts .wrap {
+      width: 80%;
+      top: 50%;
+      position: absolute;
+      -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+              transform: translateY(-50%);
+      box-sizing: border-box;
+      padding: 16px 0 40px;
+      margin: 0 10%; }
+    /* line 542, mobile.scss */
+    .forms-col section.contacts .logo {
+      display: inline-block;
+      background: url("https://pp.vk.me/c637219/v637219329/53b6/2IiBodF4d10.jpg") no-repeat;
+      /*background: url(../logo.jpg) no-repeat;*/
+      background-size: cover;
+      width: 35vw;
+      height: 35vw;
+      position: relative;
+      border-radius: 44vw; }
+      /* line 550, mobile.scss */
+      .forms-col section.contacts .logo:before {
+        content: '';
+        width: 42vw;
+        height: 42vw;
+        border-radius: 54vw;
+        position: absolute;
+        left: -3.5vw;
+        top: -3.5vw;
+        box-shadow: inset 0 0 0 2px #feffe2; }
+    /* line 561, mobile.scss */
+    .forms-col section.contacts input[type=text] {
+      width: 100%;
+      position: relative;
+      float: left;
+      margin: 30px 0 0;
+      background: none;
+      border: none;
+      text-align: center;
+      border-bottom: 2px solid #feffe2;
+      font-size: 5vw;
+      padding: 0 0 3vw;
+      font-family: 'Avenir Next Cyr',sans-serif;
+      color: #feffe2; }
+      /* line 574, mobile.scss */
+      .forms-col section.contacts input[type=text]::-webkit-input-placeholder {
+        color: #feffe2;
+        opacity: 0.5; }
+      .forms-col section.contacts input[type=text]::-moz-placeholder {
+        color: #feffe2;
+        opacity: 0.5; }
+      .forms-col section.contacts input[type=text]:-ms-input-placeholder {
+        color: #feffe2;
+        opacity: 0.5; }
+      .forms-col section.contacts input[type=text]::placeholder {
+        color: #feffe2;
+        opacity: 0.5; }
+    /* line 579, mobile.scss */
+    .forms-col section.contacts input[type=submit] {
+      font-size: 5vw;
+      text-decoration: none;
+      color: #feffe2;
+      border: 2px solid;
+      padding: 2.3vw 4.5vw 3vw;
+      border-radius: 10vw;
+      margin: 8vw 0 0;
+      display: inline-block;
+      background: none;
+      font-family: 'Avenir Next Cyr',sans-serif; }
+
+/* line 597, mobile.scss */
+aside .menu {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  background: url(../mobile/menu.svg) no-repeat;
+  background-size: contain; }
+/* line 606, mobile.scss */
+aside .back {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  bottom: 15px;
+  right: 0;
+  background: url(../mobile/back.svg) no-repeat;
+  background-size: contain;
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-transition: 0.3s ease;
+          transition: 0.3s ease; }
+  /* line 616, mobile.scss */
+  aside .back.show {
+    -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+            transform: translateX(0);
+    right: 15px; }
+/* line 621, mobile.scss */
+aside nav {
+  position: fixed;
+  background: #e0643d;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 30px 0 0;
+  -webkit-transition: .3s ease;
+          transition: .3s ease;
+  -webkit-transform-origin: bottom center;
+      -ms-transform-origin: bottom center;
+          transform-origin: bottom center;
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
+  opacity: 0;
+  pointer-events: none; }
+  /* line 635, mobile.scss */
+  aside nav.show {
+    -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1);
+    opacity: 0.95;
+    pointer-events: auto; }
+  /* line 640, mobile.scss */
+  aside nav .nav-wrap {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%); }
+  /* line 647, mobile.scss */
+  aside nav .nav-link {
+    font-weight: 500;
+    color: #feffe2;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 0 0 30px;
+    width: 100%;
+    float: left;
+    position: relative; }
+  /* line 657, mobile.scss */
+  aside nav hr {
+    width: 40px;
+    height: 2px;
+    background: #feffe2; }
+  /* line 662, mobile.scss */
+  aside nav .close {
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    background: url(../mobile/close.svg) no-repeat;
+    background-size: contain; }
+  /* line 671, mobile.scss */
+  aside nav .anmedio {
+    position: absolute;
+    width: 40%;
+    bottom: 22px;
+    left: 50%;
+    margin: 0 0 0 -20%; }

@@ -1,0 +1,96 @@
+section.first{
+	/*background:url(/corporate/back.jpg) no-repeat center center;
+	background-size:cover;*/
+}
+.top9{
+	color:#FEFFE2;
+}
+.top9 span{
+	background: #FEFFE2;
+    color: #36211A;
+}
+aside nav a.active {
+    box-shadow: 0 0 0 10px rgba(254, 255, 226, 0.2);
+    background: rgba(254, 255, 226, 0.2);
+}
+aside .logo .surname{
+	background: #366fcf;
+	background: -moz-linear-gradient(left,  #366fcf 0%, #7f3ace 100%);
+	background: -webkit-linear-gradient(left,  #366fcf 0%,#7f3ace 100%);
+	background: linear-gradient(to right,  #366fcf 0%,#7f3ace 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#366fcf', endColorstr='#7f3ace',GradientType=1 );
+}
+aside .logo .surname span{
+	display:none;
+}
+section.video .play{
+	background:#393d4a;
+}
+aside .blood-back{
+	background:#2e323f;
+}
+section.photo .column-1 .quote{
+	background:#393d4a;
+}
+section.photo .column-1 .about p span{
+	background:#393d4a;
+}
+section.reviews .mask .handle .year-label.before{
+	background: #386ecf;
+}
+section.reviews .mask .handle .year-label.before:before{
+	border-left: 6px solid #386ecf;
+    border-top: 26px solid #386ecf;
+}
+section.reviews .mask .handle .year-label.before:after{
+	border-left: 6px solid #386ecf;
+    border-bottom: 26px solid #386ecf;
+}
+section.calendar .column-1 #calendar {
+    background: #393d4a;
+}
+section.calendar .column-1 #calendar table a.after:hover {
+    background: #4d5058;
+}
+section.calendar .column-1 #calendar table td.today a{
+	color:#7b7af3;
+}
+section.calendar .column-1 #calendar .legend span{
+	background:#5a59ce;
+}
+section.calendar .column-1 #calendar table a.choose {
+    background: #feffe2;
+    color: #242424;
+}
+section.calendar .column-1 #calendar table a.choose:hover {
+    background: #feffe2;
+}
+section.calendar .column-1 #calendar table a.reserved{
+	background:#5a59ce;
+	color:#feffe2 !important;
+}
+section.calendar .column-1 #calendar table a.reserved:hover{
+	background:#4d4cb3;
+}
+section.reviews .add{
+	background:url("/corporate/reviews.jpg") no-repeat center center;
+}
+section.contacts{
+	/*background:url(/corporate/back.jpg) no-repeat center center;*/
+	/*background-size:cover;*/
+}
+section.contacts .im-ready, section.contacts .phone span, section.contacts .ring{
+	color:#feffe2;
+}
+section.reviews .text-reviews .text-handle .review .head .author img{
+	border-radius:0;
+}
+section.reviews .text-reviews .text-handle .review .head .author a{
+	color:#242424;
+}
+#show-review .pop-up .authors a img{
+	width:auto;
+}
+#show-review .pop-up p.text{
+	margin-bottom:75px;
+}
