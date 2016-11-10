@@ -1,0 +1,42 @@
+mixin calendar(calendar)
+  .month
+    -var nextLink = '/calendar?month='+calendar.prevMonth
+    a(data-method='post', 
+      data-remote='true', 
+      href=nextLink, 
+      rel='nofollow')
+      img(src='/calendar/left.svg')
+    span= calendar.calendarHead
+    -var prevLink = '/calendar?month='+calendar.nextMonth
+    a(data-method='post', 
+      data-remote='true', 
+      href=prevLink,
+      rel='nofollow')
+      img(src='/calendar/right.svg')
+  table
+    tbody
+      tbody
+        each week in calendar.calendarData.weeks 
+          tr
+            each day in week.days 
+              -var tdNotMonth = day.isThisMonth? '' : 'notmonth';
+              -var tdWeekend = day.isWeekend? 'weekend' : '';
+              -var tdFuture = day.isFuture? 'future' : '';
+              -var tdToday = day.isToday? 'today' : '';
+              -var tdClass = [tdNotMonth, tdWeekend, tdFuture, tdToday]
+              td(class=tdClass)
+                - var reserved = day.reserved;
+                - var isFuture = day.isFuture? 'after' : ' ';
+                - var linkClass = [reserved, isFuture]
+                a(class=linkClass)= day.dateNum
+                .event 
+                  .date= day.date
+                  if day.isEventToday
+                    .name= day.isEventToday.eventName
+                    .type= day.isEventToday.eventType
+                
+  .legend
+    span 
+    | — дата занята
+    
++calendar(calendar)

@@ -6,6 +6,44 @@ module.exports = {
     fullNameViceVersa: 'Абрамов Сергей'
   },
 
+  phone: {
+    full: '+7 (920) 033-67-97',
+    code: '+7',
+    operator: '(920)',
+    rest: '033-67-97'
+  },
+
+  mainInfo: {
+    since: 'Ведущий мероприятий с 2008 года'
+  },
+
+  socialButtons: [
+    {
+      class: 'vk',
+      title: 'Паблик ВКонтакте',
+      link: '#',
+      img: '/social/vk.svg'
+    },
+    {
+      class: 'tw',
+      title: 'Твиттер',
+      link: '#',
+      img: '/social/tw.svg'
+    },
+    {
+      class: 'insta',
+      title: 'Фоточки в инстаграме',
+      link: '#',
+      img: '/social/insta.svg'
+    },
+    {
+      class: 'fb',
+      title: 'Страничка на фэйсбуке',
+      link: '#',
+      img: '/social/fb.svg'
+    },
+  ],
+
   city: 'Волгоград',
 
   corp: {
@@ -87,6 +125,29 @@ module.exports = {
       subtitle: ' ... и не пожалели!',
       text: 'Это не полный список моих клиентов, и он постоянно пополняется.'
     },
+    calendarEvents: [
+        // дата в формате день-месяц-год
+      {
+        date: '22-10-2016',
+        name: 'корпоратив фирмы рога и копыта'
+      },
+      {
+        date: '12-11-2016',
+        name: 'корпоратив фирмы рога и копыта'
+      },
+      {
+        date: '19-11-2016',
+        name: 'корпоратив фирмы brassers'
+      },
+      {
+        date: '01-12-2016',
+        name: 'корпоратив фирмы brassers'
+      },
+      {
+        date: '03-01-2017',
+        name: 'корпоратив фирмы brassers'
+      }
+    ],
     contactsPageImg: '/corporate/back.jpg'
   }
 

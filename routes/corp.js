@@ -1,12 +1,26 @@
 var express = require('express');
 var router = express.Router();
 
+const Calendar = require('./calendar.js').Calendar;
+
 const db = require('./../database');
 
 /* GET corp page. */
 router.get('/', (req, res, next) => {
-  const { corp, city, namedata } = db;
-  res.render('corp', { corp, city, namedata });
+  const settings = {path: 'corp'};
+  const calendar = new Calendar(settings);
+  const { corp, city, namedata, phone, mainInfo, socialButtons } = db;
+
+  res.render('corp', {
+    corp,
+    city,
+    namedata,
+    calendar: calendar,
+    phone,
+    mainInfo,
+    socialButtons
+  });
+  
 });
 
 router.get('/get-photos/:id', (req, res, next) => {

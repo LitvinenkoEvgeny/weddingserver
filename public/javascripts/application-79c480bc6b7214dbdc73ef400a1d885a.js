@@ -2947,6 +2947,22 @@ $(function(){
 			}
 		}
 	});
+  function handleCalendarClick(){
+    $('#calendar .month a[data-remote]').on('click', function (event) {
+      var link = $(this).attr('href');
+      // console.log(link);
+      $.ajax({
+        url: link,
+        method: 'POST',
+        success: function(data){
+          // console.log(data);
+          $('#calendar').removeClass('animated').html(data);
+          handleCalendarClick();
+        }
+      });
+    });
+  }
+  handleCalendarClick();
 	$("section.calendar .reserve .button").click(function(){
 		if($(this).hasClass('disabled')){
 
