@@ -2,14 +2,14 @@ doctype html
 html
   head
     meta(charset='UTF-8')
-    title Сергей Абрамов — Ведущий на свадьбу v Москве
+    title #{namedata.fullName} — Ведущий корпоративных мероприятий
     link(rel='shortcut icon', href='favicon.ico', type='image/x-icon')
-    script(data-turbolinks-track='false', src='assets/application-79c480bc6b7214dbdc73ef400a1d885a.js')
+    script(data-turbolinks-track='false', src='/javascripts/application-79c480bc6b7214dbdc73ef400a1d885a.js')
     link(href='https://fonts.googleapis.com/css?family=Roboto:400,700,400italic,300italic,300,900&subset=latin,cyrillic', rel='stylesheet', type='text/css')
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic&subset=latin,cyrillic')
-    link(href='style/reset.css', rel='stylesheet', media='all')
-    link(href='style/fotorama.css', rel='stylesheet', media='all')
-    link(href='style/pages.css', rel='stylesheet', media='all')
+    link(rel='stylesheet', href='/assets/reset.css/reset.css')
+    link(href='/assets/fotorama/fotorama.css', rel='stylesheet', media='all')
+    link(href='/stylesheets/pages.css', rel='stylesheet', media='all')
     meta(content='authenticity_token', name='csrf-param')
     meta(content='N3xhSnDdeSDrr5OLCJ6cnGmXdkt30I5I++9wR/4IqBA=', name='csrf-token')
     meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
@@ -28,13 +28,13 @@ html
           span Абрамов
           | Абрамов
       nav
-        a.active(href='wedding.html#about') Главная
-        a.video(href='wedding.html#video') Видео
-        a(href='wedding.html#photo') Обо мне
-        a(href='wedding.html#weddings') Свадьбы
-        a(href='wedding.html#reviews') Отзывы
-        a(href='wedding.html#calendar') Календарь
-        a(href='wedding.html#contacts') Контакты
+        a.active(href='/wedding#about') Главная
+        a.video(href='/wedding#video') Видео
+        a(href='/wedding#photo') Обо мне
+        a(href='/wedding#weddings') Свадьбы
+        a(href='/wedding#reviews') Отзывы
+        a(href='/wedding#calendar') Календарь
+        a(href='/wedding#contacts') Контакты
       .line
     section.start
       .hint
@@ -61,9 +61,9 @@ html
             V11.3c0-15.3,13.4-28.7,28.7-28.7c15.3,0,28.7,13.4,28.7,28.7v47.8h19.1V30.4c0-15.3,13.4-28.7,28.7-28.7\
             c15.3,0,28.7,13.4,28.7,28.7v47.8H687v-9.6c0-15.3,13.4-28.7,28.7-28.7c15.3,0,28.7,13.4,28.7,28.7L744.4,110.8L744.4,110.8z')
         a#start-now Сделать это!
-      video#video-start.scaled(width='100%', height='auto', preload='auto', poster='1+2.jpg')
-        source(src='1+2.mp4', type='video/mp4')
-        source(src='1+2.webm', type='video/webm')
+      video#video-start.scaled(width='100%', height='auto', preload='auto', poster='/images/1+2.jpg')
+        source(src='/videos/1+2.mp4', type='video/mp4')
+        source(src='/videos/1+2.webm', type='video/webm')
         p Видео не поддерживается в вашем браузере.
       #slider
       svg#hint-ring-line(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewbox='0 0 440 70', enable-background='new 0 0 440 70', xml:space='preserve')
@@ -84,34 +84,34 @@ html
           circle(fill='#FDFAE3', cx='415', cy='35', r='3.1')
       #flying-text
       .frames
-        img(src='img/frames/frame1.jpg')
-        img(src='img/frames/frame2.jpg')
-        img(src='img/frames/frame3.jpg')
-        img(src='img/frames/frame4.jpg')
-        img(src='img/frames/frame5.jpg')
-        img(src='img/frames/frame6.jpg')
-        img(src='img/frames/frame7.jpg')
-        img(src='img/frames/frame8.jpg')
-        img(src='img/frames/frame9.jpg')
-        img(src='img/frames/frame10.jpg')
-        img(src='img/frames/frame11.jpg')
-        img(src='img/frames/frame12.jpg')
-        img(src='img/frames/frame13.jpg')
-        img(src='img/frames/frame14.jpg')
-        img(src='img/frames/frame15.jpg')
-        img(src='img/frames/frame16.jpg')
-        img(src='img/frames/frame17.jpg')
-        img(src='img/frames/frame18.jpg')
-        img(src='img/frames/frame19.jpg')
-        img(src='img/frames/frame20.jpg')
-        img(src='img/frames/frame21.jpg')
-        img(src='img/frames/frame22.jpg')
-        img(src='img/frames/frame23.jpg')
-        img(src='img/frames/frame24.jpg')
-        img(src='img/frames/frame25.jpg')
-      video#video-finish(style='display:none;', width='100%', height='auto', preload='auto', poster='3+4.jpg')
-        source(src='3+4.mp4', type='video/mp4')
-        source(src='3+4.webm', type='video/webm')
+        img(src='/images/img/frames/frame1.jpg')
+        img(src='/images/img/frames/frame2.jpg')
+        img(src='/images/img/frames/frame3.jpg')
+        img(src='/images/img/frames/frame4.jpg')
+        img(src='/images/img/frames/frame5.jpg')
+        img(src='/images/img/frames/frame6.jpg')
+        img(src='/images/img/frames/frame7.jpg')
+        img(src='/images/img/frames/frame8.jpg')
+        img(src='/images/img/frames/frame9.jpg')
+        img(src='/images/img/frames/frame10.jpg')
+        img(src='/images/img/frames/frame11.jpg')
+        img(src='/images/img/frames/frame12.jpg')
+        img(src='/images/img/frames/frame13.jpg')
+        img(src='/images/img/frames/frame14.jpg')
+        img(src='/images/img/frames/frame15.jpg')
+        img(src='/images/img/frames/frame16.jpg')
+        img(src='/images/img/frames/frame17.jpg')
+        img(src='/images/img/frames/frame18.jpg')
+        img(src='/images/img/frames/frame19.jpg')
+        img(src='/images/img/frames/frame20.jpg')
+        img(src='/images/img/frames/frame21.jpg')
+        img(src='/images/img/frames/frame22.jpg')
+        img(src='/images/img/frames/frame23.jpg')
+        img(src='/images/img/frames/frame24.jpg')
+        img(src='/images/img/frames/frame25.jpg')
+      video#video-finish(style='display:none;', width='100%', height='auto', preload='auto', poster='/images/3+4.jpg')
+        source(src='/videos/3+4.mp4', type='video/mp4')
+        source(src='/videos/3+4.webm', type='video/webm')
         p Видео не поддерживается в вашем браузере.
     section.first
       .overlay
@@ -120,14 +120,14 @@ html
         img(src='https://pp.vk.me/c637219/v637219329/53b6/2IiBodF4d10.jpg')
       h1 Сергей Абрамов
       p.relevant Ваша свадьба с первого дубля
-      a.down(href='wedding.html#video')
-        img(src='img/down-circle.svg')
+      a.down(href='/wedding#video')
+        img(src='/images/img/down-circle.svg')
     section.video
       video#video(style='width:100%; height:auto;', preload='none', poster='https://pp.vk.me/c628526/v628526568/306e6/LqE_2JRZWTU.jpg')
-        source#mp4(src='АБРАМОВ СЕРГЕЙ. Ведущий, вокалист, шоумен. 8 920 033 67 97.webm', type='video/webm')
+        source#mp4(src='/videos/АБРАМОВ СЕРГЕЙ. Ведущий, вокалист, шоумен. 8 920 033 67 97.webm', type='video/webm')
         p Видео не поддерживается в вашем браузере.
       a.play
-        img(src='img/play.svg')
+        img(src='/images/img/play.svg')
         .line1 Посмотрите,
         .line2 и все увидите сами.
       .get-video
@@ -137,11 +137,11 @@ html
           input#video_request_mail(name='video_request[mail]', placeholder='Ваш e-mail', required='required', type='email')
           input(name='commit', type='submit', value='Ок')
       a.close
-        img(src='close.svg')
+        img(src='/images/close.svg')
         div Закрыть
-      a.button(href='wedding.html#photo')
+      a.button(href='/wedding#photo')
         | Об опыте 
-        img(src='button-arrow.svg')
+        img(src='/images/button-arrow.svg')
     section.photo
       .column-1
         .quote
@@ -150,7 +150,7 @@ html
             p Видео не поддерживается в вашем браузере.
           .line-1
           .line-2
-          img.digit(src='about/digit-one.svg')
+          img.digit(src='/images/digit-one.svg')
           .mask
             .text
               | У вас есть
@@ -166,79 +166,108 @@ html
             span текст
       .column-2
         #about-me-photos.fotorama(data-glimpse='0', data-height='100%', data-width='100%', data-maxwidth='100%', data-fit='cover', data-loop='true', data-autoplay='true', data-nav='false')
-          img(src='https://pp.vk.me/c631519/v631519329/4e8e4/9ljsghHG9IY.jpg')
-          img(src='https://pp.vk.me/c615721/v615721329/e4e/65vEbfTiV7I.jpg')
+          each photo in wedding.aboutMePhotos
+            img(src=photo)
         .grad
         .description
           .text
             | Я знаю, как сделать ваш дубль идеальным.
-          a.button(href='wedding.html#weddings')
+          a.button(href='/wedding#weddings')
             | Теперь про свадьбы 
-            img(src='button-arrow.svg')
+            img(src='/images/button-arrow.svg')
     section.weddings
       .back(style="background:url('album/1/6.jpg') no-repeat center center; background-size:cover;")
-      .active-wedding
-        .title ДВА СЕРДЦА
-        a.get-photos(rel='1')
-          img(src='photo.svg')
-          span Фотоотчет
-        .date 08 июля 2016
-        .desc Ваш комментарий
-        .people
-          img(src='people.svg')
-          span 50 гостей
-        .place
-          img(src='map.svg')
-          span Ресторан «Петровский»
-        a.button(href='wedding.html#reviews')
-          | Более 150 отзывов 
-          img(src='button-arrow.svg')
-      .weddings
-        .slide
-          img(alt='Img 5927', src='album/1/6.jpg')
-          .info
-            .title ДВА СЕРДЦА
-            .desc Ваш комментарий
-            .date 08 июля 2016
-            .place Ресторан «Петровский»
-            .people 50
-            .id 1
-        .slide
-          img(alt='18 06 2016 0272 web', src='album/2/8.jpg')
-          .info
-            .title Свадьба в лагуне
-            .desc
-            .date 18 июня 2016
-            .place ГК Русская Охота
-            .people 45
-            .id 2
-        .slide
-          img(alt='1 024', src='album/3/2.jpg')
-          .info
-            .title Свадьба "Ретро"
-            .desc
-            .date 25 июня 2016
-            .place ГК Русская Охота
-            .people 30
-            .id 3
-        .slide
-          img(alt='Dsc 4223', src='album/4/1.jpg')
-          .info
-            .title "Гангстерский" корпоратив
-            .desc Ваш комментарий
-            .date 06 октября 2014
-            .place Турбаза «Верхний бор»
-            .people 45
-            .id 4
-        .slide
-          img(alt=' 1', src='album/5/1.jpg')
-          .info
-            .title ГОЛД ФИТНЕС
-            .desc Ваш комментарий
-            .date 11 октября 2014
-            .place Ресторан «Prohlada»
-            .people 60
-            .id 5
+      each slide in wedding.eventsItems
+        if slide.active 
+          .active-wedding 
+            .title= slide.eventName
+            a.get-photos(rel=slide.linkToOtherImgs)
+              img(src='/images/photo.svg')
+              span Фотоотчет
+            .date= slide.date
+            .desc= slide.description
+            .people
+              img(src='/images/people.svg')
+              span #{slide.people} гостей
+            .place 
+              img(src='/images/map.svg')
+              span= slide.place
+            a.button(href='/wedding#reviews')
+              | Более 150 отзывов
+              img(src='/images/button-arrow.svg')
+        .weddings
+          each slide in wedding.eventsItems
+              .slide
+                img(alt=slide.id src=slide.titleImg)
+                .info
+                  .title= slide.eventName
+                  .desc= slide.description
+                  .date= slide.date
+                  .place= slide.place
+                  .people= slide.people
+                  .id= slide.id
+      //- .active-wedding
+      //-   .title ДВА СЕРДЦА
+      //-   a.get-photos(rel='1')
+      //-     img(src='/images/photo.svg')
+      //-     span Фотоотчет
+      //-   .date 08 июля 2016
+      //-   .desc Ваш комментарий
+      //-   .people
+      //-     img(src='/images/people.svg')
+      //-     span 50 гостей
+      //-   .place
+      //-     img(src='/images/map.svg')
+      //-     span Ресторан «Петровский»
+      //-   a.button(href='/wedding#reviews')
+      //-     | Более 150 отзывов 
+      //-     img(src='/images/button-arrow.svg')
+      //- .weddings
+      //-   .slide
+      //-     img(alt='Img 5927', src='album/1/6.jpg')
+      //-     .info
+      //-       .title ДВА СЕРДЦА
+      //-       .desc Ваш комментарий
+      //-       .date 08 июля 2016
+      //-       .place Ресторан «Петровский»
+      //-       .people 50
+      //-       .id 1
+      //-   .slide
+      //-     img(alt='18 06 2016 0272 web', src='album/2/8.jpg')
+      //-     .info
+      //-       .title Свадьба в лагуне
+      //-       .desc
+      //-       .date 18 июня 2016
+      //-       .place ГК Русская Охота
+      //-       .people 45
+      //-       .id 2
+      //-   .slide
+      //-     img(alt='1 024', src='album/3/2.jpg')
+      //-     .info
+      //-       .title Свадьба "Ретро"
+      //-       .desc
+      //-       .date 25 июня 2016
+      //-       .place ГК Русская Охота
+      //-       .people 30
+      //-       .id 3
+      //-   .slide
+      //-     img(alt='Dsc 4223', src='album/4/1.jpg')
+      //-     .info
+      //-       .title "Гангстерский" корпоратив
+      //-       .desc Ваш комментарий
+      //-       .date 06 октября 2014
+      //-       .place Турбаза «Верхний бор»
+      //-       .people 45
+      //-       .id 4
+      //-   .slide
+      //-     img(alt=' 1', src='album/5/1.jpg')
+      //-     .info
+      //-       .title ГОЛД ФИТНЕС
+      //-       .desc Ваш комментарий
+      //-       .date 11 октября 2014
+      //-       .place Ресторан «Prohlada»
+      //-       .people 60
+      //-       .id 5
       a.more Еще фото...
     #show-album.hidden
       .handle
@@ -247,7 +276,7 @@ html
     #show-album-grad-prev.hidden
       a.prev
     a.close-album.hidden
-      img(src='close.svg')
+      img(src='/images/close.svg')
       div Закрыть
     section.reviews
       .grad-left
@@ -371,7 +400,7 @@ html
       .about
         p.text
           | Любой отзыв на этой странице искренний. Вы можете сами в этом убедиться, написав молодым ВКонтакте.
-        a.button(href='wedding.html#calendar')
+        a.button(href='/wedding#calendar')
           | Свободные даты 
           img(src='button-arrow.svg')
       #text-reviews.text-reviews.dragdealer
@@ -728,7 +757,7 @@ html
             input#reserve_date(name='reserve[date]', type='hidden')
             input(name='commit', type='submit', value='Забронировать')
       .column-2
-        a.button(href='wedding.html#contacts')
+        a.button(href='/wedding#contacts')
           | Свяжитесь со мной 
           img(src='button-arrow.svg')
     section.contacts

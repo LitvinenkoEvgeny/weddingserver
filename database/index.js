@@ -149,6 +149,51 @@ module.exports = {
       }
     ],
     contactsPageImg: '/corporate/back.jpg'
-  }
+  },
 
+  wedding: {
+    aboutMePhotos: [
+      'https://pp.vk.me/c631519/v631519329/4e8e4/9ljsghHG9IY.jpg',
+      'https://pp.vk.me/c615721/v615721329/e4e/65vEbfTiV7I.jpg'
+    ],
+    eventsItems: [
+      {
+        id: 1,
+        active: true,
+        eventName: 'ДВА СЕРДЦА',
+        description: 'Ваш комментарий',
+        titleImg: '/album/1/6.jpg',
+        people: '50',
+        place: 'Ресторан «Петровский»',
+        date: '15 августа 2016',
+        linkToOtherImgs: '1',
+        photos: ['/album/1/1.jpg', '/album/1/2.jpg', '/album/1/3.jpg']
+      },
+      {
+        id: 2,
+        eventName: 'Свадьба в лагуне',
+        description: 'Ваш комментарий',
+        titleImg: '/album/2/8.jpg',
+        people: '45',
+        place: 'ГК Русская Охота',
+        date: '18 июня 2016',
+        linkToOtherImgs: '2',
+        photos: ['/album/2/1.jpg', '/album/2/2.jpg', '/album/2/3.jpg',
+          '/album/2/4.jpg', '/album/2/5.jpg', '/album/2/6.jpg',
+          '/album/2/7.jpg'
+        ]
+      },
+      {
+        id: 3,
+        eventName: 'Свадьба "Ретро"',
+        description: 'your comment',
+        titleImg: 'album/3/2.jpg',
+        people: '30',
+        place: 'ГК Русская Охота',
+        date: '25 июня 2016',
+        linkToOtherImgs: '3',
+        photos: ['album/3/1.jpg', 'album/3/2.jpg', 'album/3/3.jpg', 'album/3/4.jpg']
+      },
+    ],
+  }
 }
