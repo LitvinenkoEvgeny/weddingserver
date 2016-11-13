@@ -3,15 +3,51 @@ const router = express.Router();
 
 const db = require('./../database');
 
+function divideForColumns(items) {
+  return items % 3 === 0 ? items / 3 : Math.ceil(items / 3);
+}
+
+function countReviewsWidth (reviewsArray) {
+  const singleColumnWidth = 18;
+  // две пустые изначально
+  let counter = 2;
+
+
+  for (var yearArray in reviewsArray) {
+    if (reviewsArray.hasOwnProperty(yearArray)) {
+
+      counter += reviewsArray[yearArray].length;
+
+    }
+  }
+
+  return divideForColumns(counter) * 3;
+}
+
+function generateSliderWidth (reviewsArray) {
+  return `${countReviewsWidth(reviewsArray)}vw`;
+}
+
 router.get('/', (req, res, next) => {
-  const { wedding, city, namedata, phone, mainInfo, socialButtons } = db;
+  const {
+    wedding, city, namedata, phone, mainInfo, socialButtons
+  } = db;
+
+  const { reviewsByYear } = wedding;
+  const sliderWidth = generateSliderWidth(reviewsByYear);
+  const sliderData = {
+    reviewsByYear,
+    sliderWidth
+  };
+
   res.render('wedding', {
     wedding,
     city,
     namedata,
     phone,
     mainInfo,
-    socialButtons
+    socialButtons,
+    sliderData
   });
 });
 
