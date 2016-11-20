@@ -489,6 +489,86 @@ module.exports = {
           },
           text: 'Любой текст',
           date: '06 сентября 2016'
+        },
+        {
+          id: 19,
+          previewImg: 'reviews/1/1.jpg',
+          personOne: {
+            name: 'Роман',
+            img: 'https://pp.vk.me/c604326/v604326161/96be/4yzC03r7PFE.jpg',
+            profileLink: 'https://vk.com/id32002161'
+          },
+          personTwo: {
+            name: 'Ирина',
+            img: 'https://pp.vk.me/c636531/v636531762/201bd/dwv2pNfa7pQ.jpg',
+            profileLink: 'https://vk.com/irishkinkin'
+          },
+          text: 'Любой текст',
+          date: '06 сентября 2016'
+        },
+        {
+          id: 20,
+          previewImg: 'reviews/1/1.jpg',
+          personOne: {
+            name: 'Роман',
+            img: 'https://pp.vk.me/c604326/v604326161/96be/4yzC03r7PFE.jpg',
+            profileLink: 'https://vk.com/id32002161'
+          },
+          personTwo: {
+            name: 'Ирина',
+            img: 'https://pp.vk.me/c636531/v636531762/201bd/dwv2pNfa7pQ.jpg',
+            profileLink: 'https://vk.com/irishkinkin'
+          },
+          text: 'Любой текст',
+          date: '06 сентября 2016'
+        },
+        {
+          id: 21,
+          previewImg: 'reviews/1/1.jpg',
+          personOne: {
+            name: 'Роман',
+            img: 'https://pp.vk.me/c604326/v604326161/96be/4yzC03r7PFE.jpg',
+            profileLink: 'https://vk.com/id32002161'
+          },
+          personTwo: {
+            name: 'Ирина',
+            img: 'https://pp.vk.me/c636531/v636531762/201bd/dwv2pNfa7pQ.jpg',
+            profileLink: 'https://vk.com/irishkinkin'
+          },
+          text: 'Любой текст',
+          date: '06 сентября 2016'
+        },
+        {
+          id: 22,
+          previewImg: 'reviews/1/1.jpg',
+          personOne: {
+            name: 'Роман',
+            img: 'https://pp.vk.me/c604326/v604326161/96be/4yzC03r7PFE.jpg',
+            profileLink: 'https://vk.com/id32002161'
+          },
+          personTwo: {
+            name: 'Ирина',
+            img: 'https://pp.vk.me/c636531/v636531762/201bd/dwv2pNfa7pQ.jpg',
+            profileLink: 'https://vk.com/irishkinkin'
+          },
+          text: 'Любой текст',
+          date: '06 сентября 2016'
+        },
+        {
+          id: 23,
+          previewImg: 'reviews/1/1.jpg',
+          personOne: {
+            name: 'Роман',
+            img: 'https://pp.vk.me/c604326/v604326161/96be/4yzC03r7PFE.jpg',
+            profileLink: 'https://vk.com/id32002161'
+          },
+          personTwo: {
+            name: 'Ирина',
+            img: 'https://pp.vk.me/c636531/v636531762/201bd/dwv2pNfa7pQ.jpg',
+            profileLink: 'https://vk.com/irishkinkin'
+          },
+          text: 'Любой текст',
+          date: '06 сентября 2016'
         }
       ]
     }

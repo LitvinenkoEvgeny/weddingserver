@@ -3,42 +3,110 @@ const router = express.Router();
 
 const db = require('./../database');
 
-function divideForColumns(items) {
-  return items % 3 === 0 ? items / 3 : Math.ceil(items / 3);
-}
-
-function countReviewsWidth (reviewsArray) {
-  const singleColumnWidth = 18;
-  // две пустые изначально
-  let counter = 2;
 
 
-  for (var yearArray in reviewsArray) {
-    if (reviewsArray.hasOwnProperty(yearArray)) {
 
-      counter += reviewsArray[yearArray].length;
-
-    }
+class reviewsSlider {
+  constructor(items) {
+    this.dbItems = items;
+    this.width = this.generateSliderWidth(this.dbItems);
+    this.sliderData = this.generateSliderData(this.dbItems);
   }
 
-  return divideForColumns(counter) * 3;
+  generateSliderWidth(array){
+    return `${this.countReviewsWidth(array)}`;
+  }
+
+  countReviewsWidth(array){
+
+    const singleColumnWidth = 18;
+    // две пустые изначально
+    let counter = 2;
+
+
+    for (var yearArray in array) {
+      if (array.hasOwnProperty(yearArray)) {
+
+        counter += array[yearArray].length;
+
+      }
+    }
+
+    return this.divideForColumns(counter) * singleColumnWidth;
+
+  }
+
+  divideForColumns(items){
+    return items % 3 === 0 ? items / 3 : Math.ceil(items / 3);
+  }
+
+  generateSliderData(items){
+    let sliderData = [];
+
+    for (const year in items) {
+      let isFirst = true;
+
+      if (items.hasOwnProperty(year)) {
+        const yearArray = items[year];
+
+        let yearColumnObject = {
+          prevYear: +year - 1,
+          nextYear: +year,
+          slides: []
+        };
+
+        let columnObject = {
+          slides: []
+        };
+
+        if(yearArray.length <= 3){
+          yearColumnObject.slides = [...yearArray];
+        } else {
+          yearColumnObject.slides = [ ...yearArray.slice(0, 3) ];
+        }
+        sliderData.push(yearColumnObject);
+
+        for (let i = 2; i < yearArray.length; i++) {
+          const slide = yearArray[i];
+          const counter = i + 1;
+
+          if(columnObject.slides.length === 3){
+            sliderData.push(columnObject);
+            columnObject = {
+              slides: []
+            }
+          } else {
+            columnObject.slides.push(slide);
+          }
+
+
+        }
+
+      }
+
+    }
+    return sliderData;
+  }
+
+  isDivideByThree(array){
+    return array.length % 3 === 0 ? true : false;
+  }
+
+  howMuchNeed(arrayLength){
+    return (arrayLength - 1 % 3) === 0 ? 1 : 2;
+  }
 }
 
-function generateSliderWidth (reviewsArray) {
-  return `${countReviewsWidth(reviewsArray)}vw`;
-}
+
 
 router.get('/', (req, res, next) => {
   const {
     wedding, city, namedata, phone, mainInfo, socialButtons
   } = db;
 
+
   const { reviewsByYear } = wedding;
-  const sliderWidth = generateSliderWidth(reviewsByYear);
-  const sliderData = {
-    reviewsByYear,
-    sliderWidth
-  };
+  const slider = new reviewsSlider(reviewsByYear);
 
   res.render('wedding', {
     wedding,
@@ -47,7 +115,7 @@ router.get('/', (req, res, next) => {
     phone,
     mainInfo,
     socialButtons,
-    sliderData
+    slider: slider
   });
 });
 

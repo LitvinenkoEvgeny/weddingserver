@@ -282,66 +282,25 @@ html
       .grad-left
       
       
-      mixin reviewsSlider(reviews)
-        - var wasEmpty = false
+      mixin reviewsSlider(slider)
         #photo-reviews.mask.dragdealer.FFFFFFFFFFFFFFF
-          .handle(style='width: #{reviews.sliderWidth}')
-            - var counter = 0;
-            - var firstYear = Object.keys(reviews.reviewsByYear)[0] - 1;
-            - var isFirst = true;
-            
-            - for(var year in reviews.reviewsByYear){
-              
-              .column 
-                .year-label.before= year
-                .line
-                .year-label.after= +year - 1
-                
-                - var firstItem = reviews.reviewsByYear[year][0]
-                - var secondItem = reviews.reviewsByYear[year][1]
-                - var thirdItem = reviews.reviewsByYear[year][2]
-                
-                - console.log(firstItem, counter);
-                a.review.ind0.empty(class='ind#{firstItem.id}' style='background:url(/#{firstItem.previewImg}) no-repeat center 30%; background-size:cover;')
-                  .overlay
-                a.review.ind0.empty(class='ind#{secondItem.id}' style='background:url(/#{secondItem.previewImg}) no-repeat center 30%; background-size:cover;')
-                  .overlay
-                a.review.ind0.empty(class='ind#{thirdItem.id}' style='background:url(/#{thirdItem.previewImg}) no-repeat center 30%; background-size:cover;')
-                  .overlay
-                  
-                - isFirst = false;
-                
-                
-              - if(counter % 3 === 0 && !isFirst){
-            span 10  
-                //- .column
-                  //- - firstItem = reviews.reviewsByYear[year][counter]
-                  //- - secondItem = reviews.reviewsByYear[year][counter + 1]
-                  //- - console.log(reviews.reviewsByYear[year][counter + 1])
-                  //- - thirdItem = reviews.reviewsByYear[year][counter + 2]
-                  //- - console.log(reviews.reviewsByYear[year][counter + 2])
-                  
-                  //- a.review.ind0.empty(class='ind#{firstItem.id}' style='background:url(/#{firstItem.previewImg}) no-repeat center 30%; background-size:cover;')
-                  //-   .overlay
-                  //- a.review.ind0.empty(class='ind#{secondItem.id}' style='background:url(/#{secondItem.previewImg}) no-repeat center 30%; background-size:cover;')
-                  //-   .overlay
-                  //- a.review.ind0.empty(class='ind#{thirdItem.id}' style='background:url(/#{thirdItem.previewImg}) no-repeat center 30%; background-size:cover;')
-                  //-   .overlay
-                
-                //- - counter = counter + 3;
-                
-                
-              -}
-              
-            - }
-              
-                
-              
-              //- each year in reviews.reviewsByYear
-              //-   - var yearName = 
-              //-   h1= reviews.reviewsByYear[year]
-                
-      +reviewsSlider(sliderData)
+          .handle(style='width: #{slider.width}vw')
+            each column in slider.sliderData
+              if column.prevYear
+                .column 
+                  .year-label.before= column.nextYear
+                    .line 
+                    .year-label.after= column.prevYear
+                  each slide in column.slides 
+                    a.review(class='ind#{slide.id}' style='background:url("#{slide.previewImg}") no-repeat center 30%; background-size: cover;')
+                      .overlay
+              else 
+                .column 
+                  each slide in column.slides 
+                    a.review(class='ind#{slide.id}' style='background:url("#{slide.previewImg}") no-repeat center 30%; background-size: cover;')
+                      .overlay
+          
+      +reviewsSlider(slider)
           
           
       //- #photo-reviews.mask.dragdealer
