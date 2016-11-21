@@ -1,0 +1,587 @@
+doctype html
+html
+    head
+        title Сергей Абрамов — Ведущий на свадьбу в Самаре
+        link(rel='shortcut icon', href='favicon.ico', type='image/x-icon')
+        link(rel='stylesheet', href='/assets/reset.css/reset.css')
+        link(href='/assets/fotorama/fotorama.css', rel='stylesheet', media='all')
+        link(href='/stylesheets/mobile.css', rel='stylesheet', media='all')
+        script(data-turbolinks-track='false', src='/javascripts/mobile-9631ce71fbb2ac64a38a45bdc5bb251b.js')
+        meta(content='authenticity_token', name='csrf-param')
+        meta(content='3foxhPs6+hl78Zpi67g9RcYWb+VRGJizv1JY80B07J8=', name='csrf-token')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+        meta(name='apple-mobile-web-app-capable', content='yes')
+        meta(name='format-detection', content='telephone=no')
+    body.mobile
+        script.
+          $(document).ready(function(){
+            $(function() {
+                $('.fotorama.photos')
+                    .on('fotorama:showend',
+                        function(e, fotorama, extra) {
+                            $("section.about .dots .dot:eq("+(fotorama.activeFrame.i-1)+")").addClass('active').siblings().removeClass('active');
+                        }
+                    ).fotorama({
+                        spinner: {
+                            lines: 9,
+                            color: 'rgb(254, 255, 226)'
+                        }
+                    });
+
+                $('.fotorama.reviews')
+                    .on('fotorama:showend',
+                        function(e, fotorama, extra) {
+                            $("section.reviews .dots .dot:eq("+(fotorama.activeFrame.i-1)+")").addClass('active').siblings().removeClass('active');
+                        }
+                    ).fotorama({
+                        spinner: {
+                            lines: 9,
+                            color: 'rgb(254, 255, 226)'
+                        }
+                    });
+
+                $("nav a.nav-link").click(function(){
+                    var hash = $(this).attr('href');
+                    // Поменять на боевом сервере где не будет .html
+                    // На hash.slice(3)
+                    hash = hash.slice(7);
+                    var top = $("section."+hash+"").offset().top;
+                    $('body').animate({scrollTop:top}, 600);
+                    $('nav').removeClass('show');
+
+                });
+
+                $('aside .menu').click(function(){
+                    $(this).next().addClass('show');
+                });
+                $('aside .close').click(function(){
+                    $(this).parent().removeClass('show');
+                });
+
+                $('section.video .play').click(function(){
+                    $(this).fadeOut(300);
+                    $('section.video .poster').addClass('hide');
+                    $('section.video video').get(0).play();
+                });
+
+                $('.main-col section.contacts .button').click(function(){
+                    $(".main-col").addClass('hide');
+                    $("aside .back").addClass('show');
+                    $(".forms-col").addClass('show');
+                    $(".forms-col section.contacts").addClass('show');
+                });
+                $('.main-col section.calendar .button').click(function(){
+                    if($(this).hasClass('disabled')){
+
+                    }else{
+                        $(".main-col").addClass('hide');
+                        $("aside .back").addClass('show');
+                        $(".forms-col").addClass('show');
+                        $(".forms-col section.calendar").addClass('show');
+                    }
+                });
+                $('aside .back').click(function(){
+                    $(".main-col").removeClass('hide');
+                    $(this).removeClass('show');
+                    $(".forms-col").removeClass('show');
+                    setTimeout(function(){
+                        $(".forms-col section").removeClass('show');
+                    },300);
+
+                });
+
+                //section.calendar
+                $(document).on('click', '#calendar tbody a', function(){
+                    if(($(this).hasClass('reserved')) || ($(this).hasClass('after'))){
+                        if($(this).hasClass('reserved')){
+                            $(".main-col section.calendar .reserve .text").html($(this).next().children('.date').html()+'<br><span class="other">'+$(this).next().children('.name').html()+'</span>');
+                            $(".main-col section.calendar .reserve .button").addClass("disabled");
+                        }else{
+                            $(".forms-col .calendar .date").html($(this).next().children('.date').html());
+                            $(".forms-col .calendar #reserve_date").val($(this).next().children('.date').html());
+                            $(".main-col section.calendar .reserve .text").html($(this).next().children('.date').html()+'<br><span class="free">Дата свободна!</span>');
+                            $(".main-col section.calendar .reserve .button").removeClass("disabled");
+                        }
+                    } else {
+                      // new functionality remove if shit isn't working
+                        $(".forms-col .calendar .date").html($(this).next().children('.date').html());
+                        $(".forms-col .calendar #reserve_date").val($(this).next().children('.date').html());
+                        $(".main-col section.calendar .reserve .text").html($(this).next().children('.date').html()+'<br><span class="free">Дата свободна!</span>');
+                        $(".main-col section.calendar .reserve .button").removeClass("disabled");
+                    }
+                });
+            });
+
+            // my functionality
+            (function() {
+              $("a.next").click(function() {
+                console.log('here');
+                $('html, body').animate({
+                    scrollTop: $(".poster").offset().top
+                }, 2000);
+              });
+            })()
+          })
+        .main-col
+            section.main
+                a#main.hash-link
+                .wrap
+                    .logo
+                    h1 Сергей Абрамов
+                    p Ваша свадьба с первого дубля
+                a.next(href='m.html#')
+            section.video
+                a#video.hash-link
+                .wrap
+                    video(style='width:100%; height:auto;', preload='none', controls='', poster='mobile-video-back.jpg')
+                        source#mp4(src='АБРАМОВ СЕРГЕЙ. Ведущий, вокалист, шоумен. 8 920 033 67 97.webm', type='video/webm')
+                        p Видео не поддерживается в вашем браузере.
+                .poster
+                p
+                    | Посмотрите,
+                    br
+                    | и все увидите сами
+                a.play
+            section.about
+                a#about.hash-link
+                .fotorama.photos(data-autoplay='true', data-width='100%', data-height='100%', data-nav='none', data-arrows='false', data-fit='cover', data-loop='true')
+                    img(src='https://pp.vk.me/c317024/v317024329/1a5e/Hym8cDcWtAg.jpg')
+                    img(src='https://pp.vk.me/c615721/v615721329/e4e/65vEbfTiV7I.jpg')
+                .dots
+                    .dot.active
+                    .dot
+                p
+                    | Не могу сказать точно, в чем секрерт моего успеха. Но когда 
+                    b более 300
+                    |  пар говорят, что я лучший, то понимаешь, что это уже 
+                    b не случайность
+                    | .
+            section.reviews
+                a#reviews.hash-link
+                .fotorama.reviews(data-width='100%', data-height='100%', data-nav='none', data-arrows='false', data-fit='cover', data-loop='true')
+                    .review
+                        .image(style='background:url(reviews/mobile/1.jpg) no-repeat center 30%; background-size:cover;')
+                        p Любой текст
+                    .review
+                        .image(style='background:url(reviews/mobile/2.jpg) no-repeat center 30%; background-size:cover;')
+                        p Тоже самое
+                    .review
+                        .image(style='background:url(reviews/mobile/3.jpg) no-repeat center 30%; background-size:cover;')
+                        p много текста
+                    .review
+                        .image(style='background:url(reviews/mobile/4.jpg) no-repeat center 30%; background-size:cover;')
+                        p
+                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis sint assumenda repudiandae quis nobis, vero eveniet dolor, quia ipsum deleniti, neque modi sit qui laboriosam soluta est officiis iusto asperiores!
+                    .review
+                        p.all
+                            | Более 150 отзывов на 
+                            a(href='./index.html') полной версии сайта
+                .dots
+                    .dot.active
+                    .dot
+                    .dot
+                    .dot
+                    .dot
+            section.calendar
+                a.hash-link
+                #calendar
+                    .month
+                        a(data-method='post', data-remote='true', href='http://kozlovdenis.ru/pages/calendar?month=2016-09-01', rel='nofollow')
+                            img(src='calendar/left.svg')
+                        span октябрь/2016
+                        a(data-method='post', data-remote='true', href='http://kozlovdenis.ru/pages/calendar?month=2016-11-01', rel='nofollow')
+                            img(src='calendar/right.svg')
+                    table
+                        tbody
+                            tr
+                                td.notmonth
+                                    a.reserved
+                                        | 26
+                                    .event
+                                        .date
+                                            | 26 октября 2016
+                                        .name
+                                            | Рабочие встречи в Москве
+                                        .type
+                                            | Встречи
+                                td.notmonth
+                                    a.
+                                        | 27
+                                    .event
+                                        .date
+                                            | 27 октября 2016
+                                td.notmonth
+                                    a.
+                                        | 28
+                                    .event
+                                        .date
+                                            | 28 октября 2016
+                                td.notmonth
+                                    a.reserved
+                                        | 29
+                                    .event
+                                        .date
+                                            | 29 октября 2016
+                                        .name
+                                            | Конференция врачей
+                                        .type
+                                            | Конференция
+                                td.notmonth
+                                    a.
+                                        | 30
+                                    .event
+                                        .date
+                                            | 30 октября 2016
+                                td.weekend
+                                    a.reserved
+                                        | 1
+                                    .event
+                                        .date
+                                            | 1 октября 2016
+                                        .name
+                                            | Ашот и Елена
+                                        .type
+                                            | Свадьба
+                                td.weekend
+                                    a.
+                                        | 2
+                                    .event
+                                        .date
+                                            | 2 октября 2016
+                            tr
+                                td
+                                    a.
+                                        | 3
+                                    .event
+                                        .date
+                                            | 3 октября 2016
+                                td
+                                    a.
+                                        | 4
+                                    .event
+                                        .date
+                                            | 4 октября 2016
+                                td
+                                    a.
+                                        | 5
+                                    .event
+                                        .date
+                                            | 5 октября 2016
+                                td
+                                    a.
+                                        | 6
+                                    .event
+                                        .date
+                                            | 6 октября 2016
+                                td
+                                    a.
+                                        | 7
+                                    .event
+                                        .date
+                                            | 7 октября 2016
+                                td.weekend
+                                    a.
+                                        | 8
+                                    .event
+                                        .date
+                                            | 8 октября 2016
+                                td.weekend
+                                    a.
+                                        | 9
+                                    .event
+                                        .date
+                                            | 9 октября 2016
+                            tr
+                                td
+                                    a.
+                                        | 10
+                                    .event
+                                        .date
+                                            | 10 октября 2016
+                                td
+                                    a.
+                                        | 11
+                                    .event
+                                        .date
+                                            | 11 октября 2016
+                                td
+                                    a.
+                                        | 12
+                                    .event
+                                        .date
+                                            | 12 октября 2016
+                                td
+                                    a.
+                                        | 13
+                                    .event
+                                        .date
+                                            | 13 октября 2016
+                                td
+                                    a.
+                                        | 14
+                                    .event
+                                        .date
+                                            | 14 октября 2016
+                                td.weekend
+                                    a.
+                                        | 15
+                                    .event
+                                        .date
+                                            | 15 октября 2016
+                                td.weekend
+                                    a.
+                                        | 16
+                                    .event
+                                        .date
+                                            | 16 октября 2016
+                            tr
+                                td
+                                    a.
+                                        | 17
+                                    .event
+                                        .date
+                                            | 17 октября 2016
+                                td
+                                    a.
+                                        | 18
+                                    .event
+                                        .date
+                                            | 18 октября 2016
+                                td
+                                    a.
+                                        | 19
+                                    .event
+                                        .date
+                                            | 19 октября 2016
+                                td
+                                    a.
+                                        | 20
+                                    .event
+                                        .date
+                                            | 20 октября 2016
+                                td
+                                    a.reserved
+                                        | 21
+                                    .event
+                                        .date
+                                            | 21 октября 2016
+                                        .name
+                                            | Юбилей 50 лет
+                                        .type
+                                            | Юбилей
+                                td.weekend
+                                    a.
+                                        | 22
+                                    .event
+                                        .date
+                                            | 22 октября 2016
+                                td.weekend
+                                    a.
+                                        | 23
+                                    .event
+                                        .date
+                                            | 23 октября 2016
+                            tr
+                                td
+                                    a.
+                                        | 24
+                                    .event
+                                        .date
+                                            | 24 октября 2016
+                                td
+                                    a.
+                                        | 25
+                                    .event
+                                        .date
+                                            | 25 октября 2016
+                                td
+                                    a.
+                                        | 26
+                                    .event
+                                        .date
+                                            | 26 октября 2016
+                                td
+                                    a.
+                                        | 27
+                                    .event
+                                        .date
+                                            | 27 октября 2016
+                                td
+                                    a.
+                                        | 28
+                                    .event
+                                        .date
+                                            | 28 октября 2016
+                                td.weekend
+                                    a.
+                                        | 29
+                                    .event
+                                        .date
+                                            | 29 октября 2016
+                                td.today.weekend
+                                    a.
+                                        | 30
+                                    .event
+                                        .date
+                                            | 30 октября 2016
+                            tr
+                                td.future
+                                    a.after
+                                        | 31
+                                    .event
+                                        .date
+                                            | 31 октября 2016
+                                td.notmonth.future
+                                    a.after
+                                        | 1
+                                    .event
+                                        .date
+                                            | 1 октября 2016
+                                td.notmonth.future
+                                    a.after
+                                        | 2
+                                    .event
+                                        .date
+                                            | 2 октября 2016
+                                td.notmonth.future
+                                    a.after
+                                        | 3
+                                    .event
+                                        .date
+                                            | 3 октября 2016
+                                td.notmonth.future
+                                    a.after
+                                        | 4
+                                    .event
+                                        .date
+                                            | 4 октября 2016
+                                td.notmonth.weekend.future
+                                    a.after
+                                        | 5
+                                    .event
+                                        .date
+                                            | 5 октября 2016
+                                td.notmonth.weekend.future
+                                    a.after
+                                        | 6
+                                    .event
+                                        .date
+                                            | 6 октября 2016
+                    .legend
+                        span
+                        |  — дата занята
+                .reserve
+                    .text
+                        | Выберите свободную дату
+                        br
+                        | и нажмите:
+                    //
+                        <div class="text">
+                        27 мая 2016
+                        <br><span class="other">
+                        Чемпионат по акробатическому рок-н-роллу
+                        </span>
+                        </div>
+                    //
+                        <div class="text">
+                        27 мая 2016
+                        <br><span class="free">
+                        Дата свободна!
+                        </span>
+                        </div>
+                    a.button.disabled Забронировать
+            section.contacts
+                a#contacts.hash-link
+                .wrap
+                    .logo
+                    h2 Сергей Абрамов
+                    p.tagline Ваша свадьба с первого дубля
+                    hr
+                    .phone
+                        .about
+                            | Готов ответить на все ваши вопросы
+                        p.phone
+                            | +7 
+                            span (999)
+                            |  999-99-99
+                        a.button Заказать звонок
+                .social
+                    a.vk(title='Паблик ВКонтакте', href='https://vk.com/abramovsergey1', rel='nofollow', target='_blank')
+                        img(src='social/vk.svg')
+                    // <a title="Твиттер" href="" rel="nofollow" target="_blank" class="tw"><img src="social/tw.svg"></a>
+                    // <a title="Фоточки в инстаграме" href="http://instagram.com/kozlovdenislife" rel="nofollow" target="_blank" class="insta"><img src="social/insta.svg"></a>
+                    // <a title="Страничка на фэйсбуке" href="https://www.facebook.com/kozlovdenis.page" rel="nofollow" target="_blank" class="fb"><img src="social/fb.svg"></a>
+        .forms-col
+            section.calendar
+                .wrap
+                    .date 17 сентября 2015 года
+                    .free Дата свободна!
+                    form#new_reserve.new_reserve(accept-charset='UTF-8', action='http://kozlovdenis.ru/reserves', data-remote='true', method='post')
+                        div(style='display:none')
+                            input(name='utf8', type='hidden', value='✓')
+                        input#reserve_who(name='reserve[who]', placeholder='Ваше имя', required='required', type='text')
+                        input#reserve_contacts(name='reserve[contacts]', placeholder='Как с вами связаться?', required='required', type='text')
+                        input#reserve_date(name='reserve[date]', type='hidden')
+                        input(name='commit', type='submit', value='Забронировать')
+            section.contacts
+                .wrap
+                    .logo
+                    form#new_ring_request.new_ring_request(accept-charset='UTF-8', action='http://kozlovdenis.ru/ring_requests', data-remote='true', method='post')
+                        div(style='display:none')
+                            input(name='utf8', type='hidden', value='✓')
+                        input#ring_request_name(name='ring_request[name]', placeholder='Ваше имя', required='required', type='text')
+                        input#ring_request_phone(name='ring_request[phone]', placeholder='Как с вами связаться?', required='required', type='text')
+                        input(name='commit', type='submit', value='Заказать звонок')
+        aside
+            a.back
+            a.menu
+            nav
+                .nav-wrap
+                    a.nav-link(href='m.html#main') Главная
+                    a.nav-link(href='m.html#video') Видео
+                    a.nav-link(href='m.html#about') Обо мне
+                    a.nav-link(href='m.html#reviews') Отзывы
+                    a.nav-link(href='m.html#calendar') Календарь
+                    a.nav-link(href='m.html#contacts') Контакты
+                    //
+                        <hr>
+                        <a class="nav-link full" href="/?full=true">Полная версия</a>
+                a.close
+                // <a href="http://anmedio.ru" target="_blank" class="anmedio"><img src="img/copyright.svg"></a>
+        style.
+            .rotate-device-please {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 200;
+            background: url("img/rotate.svg") no-repeat center 30% #0b0b0b;
+            background-size: auto 20%;
+            opacity: 0.8;
+            box-sizing: border-box;
+            display: none;
+            }
+            @media screen and (orientation: landscape){
+            .rotate-device-please{
+            display:block;
+            }
+            }
+            .rotate-device-please p{
+            text-align: center;
+            position: absolute;
+            width: 80%;
+            font-size: 5.4vh;
+            line-height: 1.6;
+            color: white;
+            top: 55%;
+            left: 10%;
+            }
+        .rotate-device-please
+            p
+                | Пожалуйста, поверните ваше устройство в портретную ориентацию для оптимальной работы с сайтом.
+        // Yandex.Metrika counter
+        script(type='text/javascript').
+            (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter37565700 = new Ya.Metrika({ id:37565700, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");
+        noscript
+            div
+                img(src='https://mc.yandex.ru/watch/37565700', style='position:absolute; left:-9999px;', alt='')
+        // /Yandex.Metrika counter

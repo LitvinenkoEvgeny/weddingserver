@@ -12,6 +12,9 @@ const index = require('./routes/index');
 const corp = require('./routes/corp');
 const wedding = require('./routes/wedding');
 const calendar = require('./routes/calendar').router;
+const mobile = require('./routes/mobile');
+
+const isMobile = require('./middlewares/isMobile');
 
 var app = express();
 
@@ -31,9 +34,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/corp', corp);
+app.use('/corp', isMobile, corp);
 app.use('/calendar', calendar);
-app.use('/wedding', wedding);
+app.use('/wedding', isMobile, wedding);
+app.use('/m', mobile);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
