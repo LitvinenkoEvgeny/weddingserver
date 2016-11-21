@@ -17,6 +17,8 @@ module.exports = {
     since: 'Ведущий мероприятий с 2008 года'
   },
 
+  vkGroup: 'https://vk.com/prazdniknnpro',
+
   socialButtons: [
     {
       class: 'vk',
@@ -291,7 +293,7 @@ module.exports = {
             img: 'https://pp.vk.me/c636531/v636531762/201bd/dwv2pNfa7pQ.jpg',
             profileLink: 'https://vk.com/irishkinkin'
           },
-          text: 'Любой текст',
+          text: 'тестовый комментарий с сервера ( не забыть запилить валидацию)',
           date: '06 сентября 2014'
         }
       ],
@@ -571,6 +573,73 @@ module.exports = {
           date: '06 сентября 2016'
         }
       ]
-    }
-  }
+    },
+
+    clientsTextReviews: [
+      {
+        id: 1,
+        clientName: 'Алина',
+        eventName: 'Свадьба алина & Антон',
+        text: 'Вправо следующий отзыв',
+        img: 'http://cs637827.vk.me/v637827407/15963/c1KTZVWOtLQ.jpg',
+        authorLink: 'http://vk.com/1'
+      },
+      {
+        id: 2,
+        clientName: 'Алиса',
+        eventName: 'Свадьба алина & Антон',
+        text: 'Вправо следующий отзыв',
+        img: 'http://cs637827.vk.me/v637827407/15963/c1KTZVWOtLQ.jpg',
+        authorLink: 'http://vk.com/2'
+      },
+      {
+        id: 3,
+        clientName: 'Иван',
+        eventName: 'Свадьба алина & Антон',
+        text: 'Еще чуть чуть..',
+        img: 'http://cs622126.vk.me/v622126312/4e2c7/bnXXftSvY6k.jpg',
+        authorLink: 'http://vk.com/3'
+      }
+    ],
+
+    reviewsPhotoBlock: {
+      photoLink: 'https://pp.vk.me/c630829/v630829329/26309/z_If3iDbCiU.jpg',
+      imgSettings: {
+        position: 'center center',
+        backgroundColor: '',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+      },
+      header: 'Они доверили мне свое событие',
+      subtitle: ' ... и не пожалели!',
+      text: 'Это не полный список моих клиентов, и он постоянно пополняется.'
+    },
+
+
+
+    calendarEvents: [
+        // дата в формате день-месяц-год
+      {
+        date: '22-10-2016',
+        name: 'Свадьба кирилла и камиллы'
+      },
+      {
+        date: '12-11-2016',
+        name: 'че нить еще'
+      },
+      {
+        date: '19-11-2016',
+        name: 'Свадьба саши грей'
+      },
+      {
+        date: '01-12-2016',
+        name: 'Свадьба Людмилы и ?'
+      },
+      {
+        date: '03-01-2017',
+        name: 'Свадьба Криштиану роналдо на каком нить педике'
+      }
+    ],
+
+  },
 }

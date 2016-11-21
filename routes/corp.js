@@ -20,7 +20,7 @@ router.get('/', (req, res, next) => {
     mainInfo,
     socialButtons
   });
-  
+
 });
 
 router.get('/get-photos/:id', (req, res, next) => {

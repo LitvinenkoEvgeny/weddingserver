@@ -1,0 +1,21 @@
+- var nextLink = item.id + 1;
+- var prevLink = item.id - 1;
+.pop-up.review
+  h3 Благодарность
+  .authors
+    a.groom(target='_blank', rel='nofollow', href='#{item.personOne.profileLink}')
+      img(alt='Soqlhapvc9c', src='#{item.personOne.img}')
+      | #{item.personOne.name}
+    .amp &
+    a.bride(target='_blank', rel='nofollow', href='#{item.personTwo.profileLink}')
+      img(alt='Cm4ymvhjqy4', src='#{item.personTwo.img}')
+      | #{item.personTwo.name}
+    .line
+  #show-review-nav
+    a.prev(data-remote='true', href='wedding/reviews/#{prevLink}')
+    a.next(data-remote='true', href='wedding/reviews/#{nextLink}')
+  img.photo(alt='photo img', src='#{item.previewImg}')
+  p.text= item.text
+  p.date
+    img(src='/images/date.svg')
+    | #{item.date}

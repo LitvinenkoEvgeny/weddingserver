@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const db = require('./../database');
+const Calendar = require('./calendar.js').Calendar;
 
 
 
@@ -21,7 +22,7 @@ class reviewsSlider {
 
     const singleColumnWidth = 18;
     // две пустые изначально
-    let counter = 2;
+    let counter = 0;
 
 
     for (var yearArray in array) {
@@ -33,7 +34,6 @@ class reviewsSlider {
     }
 
     return this.divideForColumns(counter) * singleColumnWidth;
-
   }
 
   divideForColumns(items){
@@ -47,7 +47,8 @@ class reviewsSlider {
       let isFirst = true;
 
       if (items.hasOwnProperty(year)) {
-        const yearArray = items[year];
+        let yearArray = items[year];
+        let lastItems;
 
         let yearColumnObject = {
           prevYear: +year - 1,
@@ -66,7 +67,16 @@ class reviewsSlider {
         }
         sliderData.push(yearColumnObject);
 
-        for (let i = 2; i < yearArray.length; i++) {
+        if(yearArray.length % 3 !== 0){
+          let needItems, len = yearArray.length, empty = { empty: true };
+          needItems = (len + 1) % 3 ? 1 : 2;
+          lastItems = yearArray.slice(`-${needItems}`);
+          while(lastItems.length !== 3){
+            lastItems.push(empty);
+          };
+        };
+
+        for (let i = 3; i < yearArray.length + 1; i++) {
           const slide = yearArray[i];
           const counter = i + 1;
 
@@ -75,13 +85,15 @@ class reviewsSlider {
             columnObject = {
               slides: []
             }
+            columnObject.slides.push(slide);
           } else {
             columnObject.slides.push(slide);
           }
-
-
         }
 
+        if(lastItems){
+          sliderData.push({slides: lastItems})
+        }
       }
 
     }
@@ -100,8 +112,10 @@ class reviewsSlider {
 
 
 router.get('/', (req, res, next) => {
+  const settings = {path: 'wedding'};
+  const calendar = new Calendar(settings);
   const {
-    wedding, city, namedata, phone, mainInfo, socialButtons
+    vkGroup, wedding, city, namedata, phone, mainInfo, socialButtons
   } = db;
 
 
@@ -110,12 +124,14 @@ router.get('/', (req, res, next) => {
 
   res.render('wedding', {
     wedding,
+    vkGroup,
     city,
     namedata,
     phone,
     mainInfo,
     socialButtons,
-    slider: slider
+    slider: slider,
+    calendar
   });
 });
 
@@ -143,6 +159,39 @@ router.get('/get-photos/:id', (req, res, next) => {
   } else {
     res.json({ error: `length of finded items = ${photosForItem.length}` });
   }
+});
+
+
+router.get('/reviews/:id', (req, res, next) => {
+  const { id } = req.params;
+
+  const { wedding } = db;
+
+  const { reviewsByYear } = wedding;
+
+  for (var year in reviewsByYear) {
+    if (reviewsByYear.hasOwnProperty(year)) {
+
+      reviewsByYear[year].forEach(item => {
+        if(item.id === +id){
+          const reviewData = item;
+
+          res.render('review', { item: reviewData }, (err, body) => {
+            if(err)  next(err);
+
+            res.set('Content-Type', 'application/javascript');
+            res.send(`
+              $(".close-review").removeClass('hidden');
+              $("#show-review-nav").removeClass('hidden');
+              $("#show-review").removeClass('hidden').children('.handle').html('${body}');
+            `).end();
+          })
+        }
+      })
+    }
+  }
+  res.status(404).end();
+
 });
 
 

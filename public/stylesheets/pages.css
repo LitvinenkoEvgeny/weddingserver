@@ -2061,7 +2061,7 @@ section.reviews {
     width: 18vw;
     cursor: pointer;
     text-align: center;
-    background: url(/images/reviews/kitty.jpg) no-repeat center center;
+    background: url(/images/kitty.jpg) no-repeat center center;
     background-size: cover;
     z-index: 22; }
     /* line 1804, pages.scss */

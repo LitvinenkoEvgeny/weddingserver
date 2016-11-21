@@ -283,7 +283,7 @@ html
       
       
       mixin reviewsSlider(slider)
-        #photo-reviews.mask.dragdealer.FFFFFFFFFFFFFFF
+        #photo-reviews.mask.dragdealer
           .handle(style='width: #{slider.width}vw')
             each column in slider.sliderData
               if column.prevYear
@@ -292,477 +292,147 @@ html
                     .line 
                     .year-label.after= column.prevYear
                   each slide in column.slides 
-                    a.review(class='ind#{slide.id}' style='background:url("#{slide.previewImg}") no-repeat center 30%; background-size: cover;')
-                      .overlay
+                    if slide.empty
+                      a.review(class='ind0' style='background:url("/images/missing.png") no-repeat center 30%; background-size: cover;')
+                        .overlay
+                    else
+                      a.review(class='ind#{slide.id}' style='background:url("#{slide.previewImg}") no-repeat center 30%; background-size: cover;' href='/wedding/reviews/#{slide.id}' data-method='get' data-remote='true')
+                        .overlay
               else 
                 .column 
                   each slide in column.slides 
-                    a.review(class='ind#{slide.id}' style='background:url("#{slide.previewImg}") no-repeat center 30%; background-size: cover;')
-                      .overlay
+                    if slide.empty
+                      a.review(class='ind0' style='background:url("/images/missing.png") no-repeat center 30%; background-size: cover;')
+                        .overlay
+                    else
+                      a.review(class='ind#{slide.id}' style='background:url("#{slide.previewImg}") no-repeat center 30%; background-size: cover;' href='/wedding/reviews/#{slide.id}' data-method='get' data-remote='true')
+                        .overlay
           
       +reviewsSlider(slider)
           
           
-      //- #photo-reviews.mask.dragdealer
-      //-   // МЕНЯТЬ ШИРИНУ ТУТ, ЕСЛИ НАДО СМЕНИТЬ КОЛ-ВО ФОТОК/ЛЕТ
-      //-   //- one column = 18 vh
-      //-   .handle(style='width:234vw') 
-      //-     .column
-      //-       .year-label.before 2014
-      //-         .line
-      //-         .year-label.after 2013
-      //-       a.review.ind0.empty(style='background:url(images/medium/missing.png) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       a.review.ind1.empty(style='background:url(images/medium/missing.png) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       // WORKED
-      //-       a.review.ind2(href='./reviews/1/index.js', data-method='get', data-remote='true', style='background:url(reviews/1/1.jpg) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-     .column
-      //-       a.review.ind3(href='http://www.kozlovdenis.ru/review/36', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/36/medium/26_P0P%BFQ) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       a.review.ind4(href='http://www.kozlovdenis.ru/review/40', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/40/medium/30_P0P%BFQ) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       a.review.ind5(href='http://www.kozlovdenis.ru/review/51', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/51/medium/17_P%3CP0Q%0F._P%10Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-     .column
-      //-       // WORKED
-      //-       a.review.ind6(href='./reviews/2/index.js', data-method='get', data-remote='true', style='background:url(reviews/2/2.jpg) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       a.review.ind7(href='http://www.kozlovdenis.ru/review/52', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/52/medium/6_P8Q%0EP=Q%0F._P%12P5Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       // WORKED
-      //-       a.review.ind8(href='./reviews/3/index.js', data-method='get', data-remote='true', style='background:url(reviews/3/3.jpg) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-     .column
-      //-       a.review.ind9(href='http://www.kozlovdenis.ru/review/53', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/53/medium/13_P8Q%0EP=Q%0F._P%1CP0Q%08P0_P8_P%10P=P4Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       a.review.ind10(href='http://www.kozlovdenis.ru/review/54', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/54/medium/14_P8Q%0EP=Q%0F._P%18P;Q%0CQ%0F_P8_P%1BP8P7P0..jpg?1460800021) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       a.review.ind11(href='http://www.kozlovdenis.ru/review/35', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/35/medium/20_P8Q%0EP=Q%0F._P!P5Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-     .column
-      //-       // WORKED
-      //-       a.review.ind12(href='./reviews/4/index.js', data-method='get', data-remote='true', style='background:url(reviews/4/4.jpg) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       a.review.ind13(href='http://www.kozlovdenis.ru/review/38', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/38/medium/19_P8Q%0EP;Q%0F._P%18Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       a.review.ind14(href='http://www.kozlovdenis.ru/review/56', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/56/medium/25_P8Q%0EP;Q%0F._P%15P:P0Q%02P5Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-     .column
-      //-       // WORKED
-      //-       a.review.ind15(href='./reviews/5/index.js', data-method='get', data-remote='true', style='background:url(reviews/5/5.jpg) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       a.review.ind16(href='http://www.kozlovdenis.ru/review/58', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/58/medium/1_P0P2P3Q%03Q%01Q%02P0._P!P5Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       a.review.ind17(href='http://www.kozlovdenis.ru/review/34', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/34/medium/2_P0P2P3Q%03Q%01Q%02P0._P%1CP0Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-     .column
-      //-       a.review.ind18(href='http://www.kozlovdenis.ru/review/59', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/59/medium/8_P0P2P3Q%03Q%01Q%02P0._P%10P;P5P:Q%01P5P9_P8_P%10P;P5P:Q%01P0P=P4Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       a.review.ind19(href='http://www.kozlovdenis.ru/review/60', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/60/medium/9_P0P2P3Q%03Q%01Q%02P0._P%1CP8Q%05P0P8P;_P8_P%14P8P0P=P0..jpg?1460801292) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       a.review.ind20(href='http://www.kozlovdenis.ru/review/61', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/61/medium/15_P0P2P3Q%03Q%01Q%02P0._P%12P;P0P4P8Q%01P;P0P2P0_P8_P%1DP8P:P%3EP;P0P9..jpg?1460801442) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-     .column
-      //-       // WORKED
-      //-       a.review.ind21(href='./reviews/6/index.js', data-method='get', data-remote='true', style='background:url(reviews/6/6.jpg) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       a.review.ind22(href='http://www.kozlovdenis.ru/review/33', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/33/medium/22_P0P2P3Q%03Q%01Q%02P0._P%12P0P;P5Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       a.review.ind23(href='http://www.kozlovdenis.ru/review/63', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/63/medium/23_P0P2P3Q%03Q%01Q%02P0._P%12P0P;P5P=Q%02P8P=P0_P8_P%10P;P5P:Q%01P5P9..jpg?1460801685) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-     .column
-      //-       a.review.ind24(href='http://www.kozlovdenis.ru/review/64', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/64/medium/29_P0P2P3Q%03Q%01Q%02P0._P%15P;P5P=P0_P8_P%14P%3CP8Q%02Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       a.review.ind25(href='http://www.kozlovdenis.ru/review/65', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/65/medium/30_P0P2P3Q%03Q%01Q%02P0._P%10P;P8P=P0_P8_P!P5Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       // WORKED
-      //-       a.review.ind26(href='./reviews/7/index.js', data-method='get', data-remote='true', style='background:url(reviews/7/7.jpg) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-     .column
-      //-       a.review.ind27(href='http://www.kozlovdenis.ru/review/28', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/28/medium/6_Q%01P5P=Q%02Q%0FP1Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       a.review.ind28(href='http://www.kozlovdenis.ru/review/25', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/25/medium/13_Q%01P5P=Q%02Q%0FP1Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       a.review.ind29(href='http://www.kozlovdenis.ru/review/66', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/66/medium/18_Q%01P5P=Q%02Q%0FP1Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-     .column
-      //-       a.review.ind30(href='http://www.kozlovdenis.ru/review/29', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/29/medium/19_Q%01P5P=Q%02Q%0FP1Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       // WORKED
-      //-       a.review.ind31(href='./reviews/8/index.js', data-method='get', data-remote='true', style='background:url(reviews/8/8.jpg) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       a.review.ind32(href='http://www.kozlovdenis.ru/review/67', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/67/medium/26_Q%01P5P=Q%02Q%0FP1Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-     .column
-      //-       a.review.ind42(href='http://www.kozlovdenis.ru/review/27', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/27/medium/6_P4P5P:P0P1Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       .year-label.before 2015
-      //-         .line
-      //-         .year-label.after 2014
-      //-       a.review.ind43(href='http://www.kozlovdenis.ru/review/74', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/74/medium/10_Q%0FP=P2P0Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       a.review.ind44(href='http://www.kozlovdenis.ru/review/75', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/75/medium/24_Q%0FP=P2P0Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-     .column
-      //-       .year-label.before
-      //-         | 2016
-      //-         .line
-      //-         .year-label.after
-      //-           | 2015
-      //-       a.review.ind99(href='http://www.kozlovdenis.ru/review/121', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/121/medium/7_P%3CP0Q%0F._P%11Q%03P;P0Q%02_P8_P%1CP0Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       a.review.ind100(href='http://www.kozlovdenis.ru/review/122', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/122/medium/8_P%3CP0Q%0F._P%14P%3CP8Q%02Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      //-       a.review.ind101(href='http://www.kozlovdenis.ru/review/123', data-method='get', data-remote='true', style='background:url(http://www.kozlovdenis.ru/reviews/123/medium/14_P%3CP0Q%0F._P%10Q) no-repeat center 30%; background-size:cover;')
-      //-         .overlay
-      .about
-        p.text
-          | Любой отзыв на этой странице искренний. Вы можете сами в этом убедиться, написав молодым ВКонтакте.
+      .about(style='background:url(#{wedding.reviewsPhotoBlock.photoLink}); \
+       background-repeat: #{wedding.reviewsPhotoBlock.imgSettings.backgroundRepeat}; \
+       background-size: #{wedding.reviewsPhotoBlock.imgSettings.backgroundSize}; background-position: #{wedding.reviewsPhotoBlock.imgSettings.position}')
+        p.text= wedding.reviewsPhotoBlock.text
         a.button(href='/wedding#calendar')
           | Свободные даты 
-          img(src='button-arrow.svg')
+          img(src='/images/button-arrow.svg')
+      //- .about
+      //-   p.text
+      //-     | Любой отзыв на этой странице искренний. Вы можете сами в этом убедиться, написав молодым ВКонтакте.
+      //-   a.button(href='/wedding#calendar')
+      //-     | Свободные даты 
+      //-     img(src='/images/button-arrow.svg')
       #text-reviews.text-reviews.dragdealer
         .text-handle.handle(style='width: 400%')
-          .review(style='width: 25.0%')
-            .head
-              .author
-                img(alt='Cddssuuvjww', src='http://cs623429.vk.me/v623429218/3e18f/cDdssUUVJWw.jpg')
-                a(href='https://vk.com/prazdniknnpro', rel='nofollow', target='_blank') Алина
-              .wedding
-                img(src='reviews/rings.svg')
-                span Свадьба Алина & Антон
+          each review in wedding.clientsTextReviews
+            .review(style='width: 25%')
+              .head 
+                .author
+                  img(alt='author' src='#{review.img}')
+                  a(href='#{review.authorLink}', rel='nofollow', target='_blank')= review.clientName
+                .wedding 
+                  img(src='/images/rings.svg')
+                  span= review.eventName
+              a.text(href='flkjdsjflsdjafljasdljfsdkjafdkljsljljjfdslaj', data-method='get', data-remote='true')= review.text
+          //- .review(style='width: 25.0%')
+          //-   .head
+          //-     .author
+          //-       img(alt='Cddssuuvjww', src='http://cs623429.vk.me/v623429218/3e18f/cDdssUUVJWw.jpg')
+          //-       a(href='https://vk.com/prazdniknnpro', rel='nofollow', target='_blank') Алина
+          //-     .wedding
+          //-       img(src='reviews/rings.svg')
+          //-       span Свадьба Алина & Антон
             // <a href="/review/118" data-method="get" data-remote="true" href="/pages/calendar?month=2016-03-01" rel="nofollow"><img src="/calendar/right.svg"></a>
-            a.text(href='http://www.kozlovdenis.ru/review/118', data-method='get', data-remote='true')
-              | вправо следующий отзыв
-          .review(style='width: 25.0%')
-            .head
-              .author
-                img(alt='C1ktzvwotlq', src='http://cs637827.vk.me/v637827407/15963/c1KTZVWOtLQ.jpg')
-                a(href='https://vk.com/prazdniknnpro', rel='nofollow', target='_blank') Алиса
-              .wedding
-                img(src='reviews/rings.svg')
-                span Свадьба Алиса & Сергей
+            //- a.text(href='http://www.kozlovdenis.ru/review/118', data-method='get', data-remote='true')
+              //- | вправо следующий отзыв
+          //- .review(style='width: 25.0%')
+          //-   .head
+          //-     .author
+          //-       img(alt='C1ktzvwotlq', src='http://cs637827.vk.me/v637827407/15963/c1KTZVWOtLQ.jpg')
+          //-       a(href='https://vk.com/prazdniknnpro', rel='nofollow', target='_blank') Алиса
+          //-     .wedding
+          //-       img(src='reviews/rings.svg')
+          //-       span Свадьба Алиса & Сергей
             // <a href="/review/119" data-method="get" data-remote="true" href="/pages/calendar?month=2016-03-01" rel="nofollow"><img src="/calendar/right.svg"></a>
-            a.text(href='http://www.kozlovdenis.ru/review/119', data-method='get', data-remote='true')
-              | вправо следующий отзыв
-          .review(style='width: 25.0%')
-            .head
-              .author
-                img(alt='Bnxxftsvy6k', src='http://cs622126.vk.me/v622126312/4e2c7/bnXXftSvY6k.jpg')
-                a(href='https://vk.com/prazdniknnpro', rel='nofollow', target='_blank') Иван
-              .wedding
-                img(src='reviews/rings.svg')
-                span Свадьба Иван & Дарья
-            // <a href="/review/120" data-method="get" data-remote="true" href="/pages/calendar?month=2016-03-01" rel="nofollow"><img src="/calendar/right.svg"></a>
-            a.text(href='http://www.kozlovdenis.ru/review/120', data-method='get', data-remote='true')
-              | вправо следующий отзыв
+          //-   a.text(href='http://www.kozlovdenis.ru/review/119', data-method='get', data-remote='true')
+          //-     | вправо следующий отзыв
+          //- .review(style='width: 25.0%')
+          //-   .head
+          //-     .author
+          //-       img(alt='Bnxxftsvy6k', src='http://cs622126.vk.me/v622126312/4e2c7/bnXXftSvY6k.jpg')
+          //-       a(href='https://vk.com/prazdniknnpro', rel='nofollow', target='_blank') Иван
+          //-     .wedding
+          //-       img(src='reviews/rings.svg')
+          //-       span Свадьба Иван & Дарья
+          //-   // <a href="/review/120" data-method="get" data-remote="true" href="/pages/calendar?month=2016-03-01" rel="nofollow"><img src="/calendar/right.svg"></a>
+          //-   a.text(href='http://www.kozlovdenis.ru/review/120', data-method='get', data-remote='true')
+          //-     | вправо следующий отзыв
           .review(style='width: 25.0%')
             .head
               p.more И более 100 отзывов в моей группе ВК
-            a.show(href='https://vk.com/prazdniknnpro', target='_blank') Смотреть
+            a.show(href='#{vkGroup}', target='_blank') Смотреть
         .dots
           .dot.active
           .dot
           .dot
           .dot
-      a.add(href='https://vk.com/prazdniknnpro', target='_blank', rel='nofollow')
+      a.add(href='#{vkGroup}', target='_blank', rel='nofollow')
         p
           | Оставить отзыв ВК
           span онтакте
     #show-review.hidden
       .handle
     a.close-review.hidden
-      img(src='close.svg')
+      img(src='/images/close.svg')
+    
     section.calendar
       .column-1
-        #calendar.animated
-          .month
-            a(data-method='post', data-remote='true', href='http://www.kozlovdenis.ru/pages/calendar?month=2016-09-01', rel='nofollow')
-              img(src='calendar/left.svg')
-            span октябрь/2016
-            a(data-method='post', data-remote='true', href='http://www.kozlovdenis.ru/pages/calendar?month=2016-11-01', rel='nofollow')
-              img(src='calendar/right.svg')
-          table
-            tbody
-              tr
-                td.notmonth
-                  a.reserved
-                    | 26
-                  .event
-                    .date
-                      | 26 октября 2016
-                    .name
-                      | Рабочие встречи в Москве
-                    .type
-                      | Встречи
-                td.notmonth
-                  a.
-                    | 27
-                  .event
-                    .date
-                      | 27 октября 2016
-                td.notmonth
-                  a.
-                    | 28
-                  .event
-                    .date
-                      | 28 октября 2016
-                td.notmonth
-                  a.reserved
-                    | 29
-                  .event
-                    .date
-                      | 29 октября 2016
-                    .name
-                      | Конференция врачей
-                    .type
-                      | Конференция
-                td.notmonth
-                  a.
-                    | 30
-                  .event
-                    .date
-                      | 30 октября 2016
-                td.weekend
-                  a.reserved
-                    | 1
-                  .event
-                    .date
-                      | 1 октября 2016
-                    .name
-                      | Ашот и Елена
-                    .type
-                      | Свадьба
-                td.weekend
-                  a.
-                    | 2
-                  .event
-                    .date
-                      | 2 октября 2016
-              tr
-                td
-                  a.
-                    | 3
-                  .event
-                    .date
-                      | 3 октября 2016
-                td
-                  a.
-                    | 4
-                  .event
-                    .date
-                      | 4 октября 2016
-                td
-                  a.
-                    | 5
-                  .event
-                    .date
-                      | 5 октября 2016
-                td
-                  a.
-                    | 6
-                  .event
-                    .date
-                      | 6 октября 2016
-                td
-                  a.
-                    | 7
-                  .event
-                    .date
-                      | 7 октября 2016
-                td.weekend
-                  a.
-                    | 8
-                  .event
-                    .date
-                      | 8 октября 2016
-                td.weekend
-                  a.
-                    | 9
-                  .event
-                    .date
-                      | 9 октября 2016
-              tr
-                td.today
-                  a.
-                    | 10
-                  .event
-                    .date
-                      | 10 октября 2016
-                td.future
-                  a.after
-                    | 11
-                  .event
-                    .date
-                      | 11 октября 2016
-                td.future
-                  a.after
-                    | 12
-                  .event
-                    .date
-                      | 12 октября 2016
-                td.future
-                  a.after
-                    | 13
-                  .event
-                    .date
-                      | 13 октября 2016
-                td.future
-                  a.after
-                    | 14
-                  .event
-                    .date
-                      | 14 октября 2016
-                td.weekend.future
-                  a.after
-                    | 15
-                  .event
-                    .date
-                      | 15 октября 2016
-                td.weekend.future
-                  a.after
-                    | 16
-                  .event
-                    .date
-                      | 16 октября 2016
-              tr
-                td.future
-                  a.after
-                    | 17
-                  .event
-                    .date
-                      | 17 октября 2016
-                td.future
-                  a.after
-                    | 18
-                  .event
-                    .date
-                      | 18 октября 2016
-                td.future
-                  a.after
-                    | 19
-                  .event
-                    .date
-                      | 19 октября 2016
-                td.future
-                  a.after
-                    | 20
-                  .event
-                    .date
-                      | 20 октября 2016
-                td.future
-                  a.reserved.after
-                    | 21
-                  .event
-                    .date
-                      | 21 октября 2016
-                    .name
-                      | Юбилей 50 лет
-                    .type
-                      | Юбилей
-                td.weekend.future
-                  a.after
-                    | 22
-                  .event
-                    .date
-                      | 22 октября 2016
-                td.weekend.future
-                  a.after
-                    | 23
-                  .event
-                    .date
-                      | 23 октября 2016
-              tr
-                td.future
-                  a.after
-                    | 24
-                  .event
-                    .date
-                      | 24 октября 2016
-                td.future
-                  a.after
-                    | 25
-                  .event
-                    .date
-                      | 25 октября 2016
-                td.future
-                  a.after
-                    | 26
-                  .event
-                    .date
-                      | 26 октября 2016
-                td.future
-                  a.after
-                    | 27
-                  .event
-                    .date
-                      | 27 октября 2016
-                td.future
-                  a.after
-                    | 28
-                  .event
-                    .date
-                      | 28 октября 2016
-                td.weekend.future
-                  a.after
-                    | 29
-                  .event
-                    .date
-                      | 29 октября 2016
-                td.weekend.future
-                  a.after
-                    | 30
-                  .event
-                    .date
-                      | 30 октября 2016
-              tr
-                td.future
-                  a.after
-                    | 31
-                  .event
-                    .date
-                      | 31 октября 2016
-                td.notmonth.future
-                  a.after
-                    | 1
-                  .event
-                    .date
-                      | 1 октября 2016
-                td.notmonth.future
-                  a.after
-                    | 2
-                  .event
-                    .date
-                      | 2 октября 2016
-                td.notmonth.future
-                  a.after
-                    | 3
-                  .event
-                    .date
-                      | 3 октября 2016
-                td.notmonth.future
-                  a.after
-                    | 4
-                  .event
-                    .date
-                      | 4 октября 2016
-                td.notmonth.weekend.future
-                  a.after
-                    | 5
-                  .event
-                    .date
-                      | 5 октября 2016
-                td.notmonth.weekend.future
-                  a.after
-                    | 6
-                  .event
-                    .date
-                      | 6 октября 2016
-          .legend
-            span
-            |  — дата занята
+        mixin calendar(calendar)
+          #calendar.animated
+            .month
+              -var nextLink = '/calendar?month='+calendar.prevMonth
+              a(data-method='post', 
+                data-remote='true', 
+                href=nextLink, 
+                rel='nofollow')
+                img(src='/calendar/left.svg')
+              span= calendar.calendarHead
+              -var prevLink = '/calendar?month='+calendar.nextMonth
+              a(data-method='post', 
+                data-remote='true', 
+                href=prevLink,
+                rel='nofollow')
+                img(src='/calendar/right.svg')
+            table
+              tbody
+                tbody
+                  each week in calendar.calendarData.weeks 
+                    tr
+                      each day in week.days 
+                        -var tdNotMonth = day.isThisMonth? '' : 'notmonth';
+                        -var tdWeekend = day.isWeekend? 'weekend' : '';
+                        -var tdFuture = day.isFuture? 'future' : '';
+                        -var tdToday = day.isToday? 'today' : '';
+                        -var tdClass = [tdNotMonth, tdWeekend, tdFuture, tdToday]
+                        td(class=tdClass)
+                          - var reserved = day.reserved;
+                          - var isFuture = day.isFuture? 'after' : ' ';
+                          - var linkClass = [reserved, isFuture]
+                          a(class=linkClass)= day.dateNum
+                          .event 
+                            .date= day.date
+                            if day.isEventToday
+                              .name= day.isEventToday.eventName
+                              .type= day.isEventToday.eventType
+                          
+            .legend
+              span 
+              | — дата занята
+              
+        +calendar(calendar)
+        
         .reserve
           .text
             | Выберите свободную дату
@@ -779,14 +449,14 @@ html
       .column-2
         a.button(href='/wedding#contacts')
           | Свяжитесь со мной 
-          img(src='button-arrow.svg')
+          img(src='/images/button-arrow.svg')
     section.contacts
       .overlay
       .logo
         img(src='https://pp.vk.me/c637219/v637219329/53b6/2IiBodF4d10.jpg')
       .text
-        h1 Сергей Абрамов
-        p.relevant Ваша свадьба с первого дубля
+        h1= namedata.fullName
+        p.relevant= mainInfo.since
         .line
         p.im-ready Готов ответить на все ваши вопросы
         .get-ring
@@ -798,18 +468,13 @@ html
             input#ring_request_phone(name='ring_request[phone]', placeholder='Ваш телефон', required='required', style='width:20vw', type='text')
             input(name='commit', type='submit', value='Ок')
         p.phone.show
-          | +7 
-          span (920)
-          |  033-67-97
+          | #{phone.code}
+          span= phone.operator
+          |  #{phone.rest}
         .social
-          a.vk(title='Паблик ВКонтакте', href='#', rel='nofollow', target='_blank')
-            img(src='social/vk.svg')
-          a.tw(title='Твиттер', href='#', rel='nofollow', target='_blank')
-            img(src='social/tw.svg')
-          a.insta(title='Фоточки в инстаграме', href='#', rel='nofollow', target='_blank')
-            img(src='social/insta.svg')
-          a.fb(title='Страничка на фэйсбуке', href='#', rel='nofollow', target='_blank')
-            img(src='social/fb.svg')
+          each button in socialButtons
+            a(class=button.class title=button.title href=button.link target='_blank')
+              img(src=button.img)
     // Yandex.Metrika counter
     script(type='text/javascript').
       (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter37565700 = new Ya.Metrika({ id:37565700, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");
