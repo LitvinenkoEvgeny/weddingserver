@@ -23,10 +23,10 @@ html
       a.logo
         img.ipad(src='https://pp.vk.me/c637219/v637219329/53b6/2IiBodF4d10.jpg')
         img.laptop(src='https://pp.vk.me/c637219/v637219329/53b6/2IiBodF4d10.jpg')
-        .name Сергей
+        .name= namedata.name
         .surname
-          span Абрамов
-          | Абрамов
+          span= namedata.lastname
+          | #{namedata.lastname}
       nav
         a.active(href='/wedding#about') Главная
         a.video(href='/wedding#video') Видео
@@ -118,7 +118,7 @@ html
       .now-me
       #logo
         img(src='https://pp.vk.me/c637219/v637219329/53b6/2IiBodF4d10.jpg')
-      h1 Сергей Абрамов
+      h1= namedata.fullName
       p.relevant Ваша свадьба с первого дубля
       a.down(href='/wedding#video')
         img(src='/images/img/down-circle.svg')

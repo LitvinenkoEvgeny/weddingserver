@@ -34,9 +34,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/corp', isMobile, corp);
+app.use('/corp', corp);
 app.use('/calendar', calendar);
-app.use('/wedding', isMobile, wedding);
+app.use('/wedding', wedding);
 app.use('/m', mobile);
 
 // catch 404 and forward to error handler

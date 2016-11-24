@@ -620,26 +620,63 @@ module.exports = {
     calendarEvents: [
         // дата в формате день-месяц-год
       {
-        date: '22-10-2016',
+        date: '23-10-2016',
         name: 'Свадьба кирилла и камиллы'
       },
       {
-        date: '12-11-2016',
+        date: '15-11-2016',
         name: 'че нить еще'
       },
       {
-        date: '19-11-2016',
+        date: '17-11-2016',
         name: 'Свадьба саши грей'
       },
       {
-        date: '01-12-2016',
+        date: '04-12-2016',
         name: 'Свадьба Людмилы и ?'
       },
       {
-        date: '03-01-2017',
+        date: '02-01-2017',
         name: 'Свадьба Криштиану роналдо на каком нить педике'
       }
     ],
 
   },
+
+  mobile: {
+    mainPhoto: 'https://pp.vk.me/c637219/v637219329/53b6/2IiBodF4d10.jpg',
+    logoText: 'Ваша свадьба с первого дубля',
+    video: {
+      poster: 'mobile-video-back.jpg',
+      source: '/videos/АБРАМОВ СЕРГЕЙ. Ведущий, вокалист, шоумен. 8 920 033 67 97.webm'
+    },
+    // только две картинки
+    fotoramaImages: [
+      'https://pp.vk.me/c317024/v317024329/1a5e/Hym8cDcWtAg.jpg',
+      'https://pp.vk.me/c615721/v615721329/e4e/65vEbfTiV7I.jpg'
+    ],
+    mobileReviews: [
+      // Только четыре ревьюшки
+      {
+        id: 1,
+        img: 'reviews/mobile/1.jpg',
+        text: 'любой текст'
+      },
+      {
+        id: 2,
+        img: 'reviews/mobile/2.jpg',
+        text: 'любой текст'
+      },
+      {
+        id: 3,
+        img: 'reviews/mobile/3.jpg',
+        text: 'любой текст'
+      },
+      {
+        id: 4,
+        img: 'reviews/mobile/4.jpg',
+        text: 'любой текст'
+      }
+    ]
+  }
 }

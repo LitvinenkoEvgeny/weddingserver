@@ -21,6 +21,13 @@ class Calendar{
       this.now = moment(settings.date) || moment();
       this.path = settings.path;
       this.eventsData = db[this.path].calendarEvents;
+
+      if (this.path === 'mobile') {
+        const corpArr = db['corp'].calendarEvents;
+        const weddingArr = db['wedding'].calendarEvents;
+        this.eventsData = [].concat(corpArr, weddingArr);
+      }
+
     } else {
       this.now = moment();
     }
@@ -143,15 +150,20 @@ router.post('/', (req, res, next) => {
   // http://localhost:3000/corp => [ 'http:', '', 'localhost:3000', 'corp' ] =>
   // corp
   const fromPath = req.get('referrer').split('/').slice(-1).toString();
-  const settings = Object.assign({}, { date: month, path: fromPath });
+  let path = fromPath === 'm' ? 'mobile' : fromPath;
+
+  const settings = Object.assign({}, { date: month, path });
 
   calendar = new Calendar(settings);
 
   res.render('calendar', { calendar }, (err, body) => {
     if(err) next(err);
 
-    const response = body;
     // const response = body;
+    // const response = body;
+    const response = `$('#calendar').removeClass('animated').html('${body}')`;
+    res.set('Content-Type', 'application/javascript');
+    res.send(response).end();
 
 
     res.end(response)

@@ -81,7 +81,7 @@ body {
       position: absolute;
       bottom: 15px;
       left: 50%;
-      background: url(../mobile/down.svg) no-repeat;
+      background: url(/mobile/down.svg) no-repeat;
       background-size: contain;
       margin: 0 0 0 -15px; }
   /* line 90, mobile.scss */
@@ -99,7 +99,7 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
-    background: url(../mobile/play.svg) no-repeat;
+    background: url(/mobile/play.svg) no-repeat;
     background-size: contain;
     margin: -15vw 0 0 -15vw;
     -webkit-filter: drop-shadow(0 0 10px black); }
@@ -626,7 +626,7 @@ aside .menu {
   position: fixed;
   bottom: 15px;
   left: 15px;
-  background: url(../mobile/menu.svg) no-repeat;
+  background: url(/mobile/menu.svg) no-repeat;
   background-size: contain; }
 /* line 606, mobile.scss */
 aside .back {
@@ -635,7 +635,7 @@ aside .back {
   position: fixed;
   bottom: 15px;
   right: 0;
-  background: url(../mobile/back.svg) no-repeat;
+  background: url(/mobile/back.svg) no-repeat;
   background-size: contain;
   -webkit-transform: translateX(100%);
       -ms-transform: translateX(100%);
@@ -705,7 +705,7 @@ aside nav {
     position: fixed;
     bottom: 15px;
     left: 15px;
-    background: url(../mobile/close.svg) no-repeat;
+    background: url(/mobile/close.svg) no-repeat;
     background-size: contain; }
   /* line 671, mobile.scss */
   aside nav .anmedio {
